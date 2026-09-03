@@ -25,3 +25,74 @@
                 <img src="https://cdni.iconscout.com/illustration/premium/thumb/student-preparing-for-exam-4268352-3551717.png" alt="login-img" class="w-full">
             </div>
         </div>
+
+        <!-- Form Side -->
+        <div class="md:w-1/2 p-8 md:p-12">
+            <h3 class="text-2xl font-bold text-slate-800">Student Login</h3>
+            <p class="text-slate-500 text-sm mt-1">Don't have an account? <a href="register.html" class="text-indigo-600 font-bold">Register</a></p>
+
+            <form id="loginForm" class="mt-8 space-y-6">
+                <div>
+                    <label class="block text-sm font-semibold text-slate-700 mb-2">Email Address</label>
+                    <div class="relative">
+                        <i class="fas fa-envelope absolute left-4 top-1/2 -translate-y-1/2 text-slate-400"></i>
+                        <input type="email" required value="mehedi@university.edu" class="w-full pl-12 pr-4 py-3 rounded-xl border border-slate-200 focus:border-indigo-600 focus:ring-2 focus:ring-indigo-100 outline-none transition">
+                    </div>
+                </div>
+
+                <div>
+                    <div class="flex justify-between mb-2">
+                        <label class="block text-sm font-semibold text-slate-700">Password</label>
+                        <a href="#" class="text-sm text-indigo-600 hover:underline">Forgot?</a>
+                    </div>
+                    <div class="relative">
+                        <i class="fas fa-lock absolute left-4 top-1/2 -translate-y-1/2 text-slate-400"></i>
+                        <input type="password" required value="123456" class="w-full pl-12 pr-4 py-3 rounded-xl border border-slate-200 focus:border-indigo-600 focus:ring-2 focus:ring-indigo-100 outline-none transition">
+                    </div>
+                </div>
+
+                <div class="flex items-center gap-2">
+                    <input type="checkbox" id="remember" class="w-4 h-4 text-indigo-600 border-slate-300 rounded focus:ring-indigo-500">
+                    <label for="remember" class="text-sm text-slate-600">Remember me</label>
+                </div>
+
+                <button type="submit" class="w-full bg-indigo-600 text-white font-bold py-4 rounded-xl hover:bg-indigo-700 transition shadow-lg shadow-indigo-100">
+                    Sign In
+                </button>
+
+                <div class="relative my-8">
+                    <div class="absolute inset-0 flex items-center"><div class="w-full border-t border-slate-200"></div></div>
+                    <div class="relative flex justify-center text-sm"><span class="px-2 bg-white text-slate-500">Or continue with</span></div>
+                </div>
+
+                <div class="grid grid-cols-2 gap-4">
+                    <button type="button" class="flex items-center justify-center gap-2 py-3 border border-slate-200 rounded-xl hover:bg-slate-50 transition">
+                        <img src="https://www.svgrepo.com/show/475656/google-color.svg" class="w-5" alt="google">
+                        <span class="text-sm font-semibold">Google</span>
+                    </button>
+                    <button type="button" class="flex items-center justify-center gap-2 py-3 border border-slate-200 rounded-xl hover:bg-slate-50 transition">
+                        <i class="fab fa-github text-lg"></i>
+                        <span class="text-sm font-semibold">GitHub</span>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            // Mock Login Logic
+            const demoUser = {
+                id: 'S001',
+                name: 'Mehedi Hasan',
+                email: 'mehedi@university.edu',
+                role: 'student',
+                activeRole: 'student'
+            };
+            localStorage.setItem('currentUser', JSON.stringify(demoUser));
+            window.location.href = 'dashboard.html';
+        });
+    </script>
+</body>
+</html>
