@@ -94,3 +94,40 @@
             </div>
         </div>
     </main>
+
+
+     <!-- Apply Modal -->
+    <div id="applyModal" class="fixed inset-0 bg-slate-900/60 z-[100] hidden items-center justify-center p-4">
+        <div class="bg-white w-full max-w-lg rounded-3xl p-8 sidebar-animate">
+            <div class="flex justify-between items-center mb-6">
+                <h3 class="text-2xl font-bold">Apply for Position</h3>
+                <button onclick="closeApplyModal()" class="text-slate-400 hover:text-slate-600"><i class="fas fa-times text-xl"></i></button>
+            </div>
+            <form class="space-y-4">
+                <div>
+                    <label class="block text-sm font-semibold text-slate-700 mb-2">Resume</label>
+                    <div class="border-2 border-dashed border-slate-200 rounded-xl p-6 text-center hover:border-indigo-600 transition cursor-pointer">
+                        <i class="fas fa-cloud-upload-alt text-3xl text-slate-300 mb-2"></i>
+                        <p class="text-sm text-slate-500">Upload your PDF resume or <span class="text-indigo-600 font-bold">choose from profile</span></p>
+                    </div>
+                </div>
+                <div>
+                    <label class="block text-sm font-semibold text-slate-700 mb-2">Cover Letter (Optional)</label>
+                    <textarea rows="4" class="w-full p-4 rounded-xl border border-slate-200 focus:ring-2 focus:ring-indigo-100 outline-none" placeholder="Tell the company why you are a good fit..."></textarea>
+                </div>
+                <button type="button" onclick="submitApplication()" class="w-full py-4 bg-indigo-600 text-white font-bold rounded-xl shadow-lg shadow-indigo-100">Submit Application</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="../../js/main.js"></script>
+    <script>
+        function openApplyModal() { document.getElementById('applyModal').classList.remove('hidden'); document.getElementById('applyModal').classList.add('flex'); }
+        function closeApplyModal() { document.getElementById('applyModal').classList.add('hidden'); document.getElementById('applyModal').classList.remove('flex'); }
+        function submitApplication() { 
+            alert('Application submitted successfully!');
+            closeApplyModal();
+        }
+    </script>
+</body>
+</html>
