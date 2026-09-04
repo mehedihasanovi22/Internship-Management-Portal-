@@ -103,3 +103,66 @@
                     <a href="internships.html" class="px-4 py-2 bg-indigo-600 text-white rounded-lg text-sm font-bold shadow-lg shadow-indigo-100">Find New Jobs</a>
                 </div>
             </div>
+
+
+
+            <!-- Stats Grid -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm card-hover">
+                    <div class="flex justify-between items-start">
+                        <div class="p-3 bg-blue-50 text-blue-600 rounded-xl"><i class="fas fa-paper-plane"></i></div>
+                        <span class="text-xs font-bold text-green-500 bg-green-50 px-2 py-1 rounded">+12%</span>
+                    </div>
+                    <h3 class="text-3xl font-bold mt-4">12</h3>
+                    <p class="text-slate-500 text-sm">Applied Internships</p>
+                </div>
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm card-hover">
+                    <div class="flex justify-between items-start">
+                        <div class="p-3 bg-purple-50 text-purple-600 rounded-xl"><i class="fas fa-user-clock"></i></div>
+                    </div>
+                    <h3 class="text-3xl font-bold mt-4">04</h3>
+                    <p class="text-slate-500 text-sm">Pending Review</p>
+                </div>
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm card-hover">
+                    <div class="flex justify-between items-start">
+                        <div class="p-3 bg-orange-50 text-orange-600 rounded-xl"><i class="fas fa-calendar-check"></i></div>
+                    </div>
+                    <h3 class="text-3xl font-bold mt-4">02</h3>
+                    <p class="text-slate-500 text-sm">Interviews Scheduled</p>
+                </div>
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm card-hover">
+                    <div class="flex justify-between items-start">
+                        <div class="p-3 bg-green-50 text-green-600 rounded-xl"><i class="fas fa-award"></i></div>
+                    </div>
+                    <h3 class="text-3xl font-bold mt-4">01</h3>
+                    <p class="text-slate-500 text-sm">Offers Received</p>
+                </div>
+            </div>
+
+            <!-- Analytics & Charts -->
+            <div class="grid lg:grid-cols-3 gap-6">
+                <div class="lg:col-span-2 bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
+                    <h3 class="font-bold text-slate-800 mb-6">Application Activity</h3>
+                    <canvas id="activityChart" height="150"></canvas>
+                </div>
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
+                    <h3 class="font-bold text-slate-800 mb-6">Profile Completion</h3>
+                    <div class="flex justify-center items-center py-4">
+                        <div class="relative w-40 h-40">
+                            <svg class="w-full h-full" viewBox="0 0 36 36">
+                                <circle cx="18" cy="18" r="16" fill="none" stroke="#f1f5f9" stroke-width="3"></circle>
+                                <circle cx="18" cy="18" r="16" fill="none" stroke="#6366f1" stroke-width="3" stroke-dasharray="85, 100" stroke-linecap="round"></circle>
+                            </svg>
+                            <div class="absolute inset-0 flex flex-col items-center justify-center">
+                                <span class="text-3xl font-bold">85%</span>
+                                <span class="text-xs text-slate-400">Complete</span>
+                            </div>
+                        </div>
+                    </div>
+                    <ul class="mt-6 space-y-3">
+                        <li class="flex items-center gap-2 text-sm text-green-600"><i class="fas fa-check-circle"></i> Basic Info</li>
+                        <li class="flex items-center gap-2 text-sm text-green-600"><i class="fas fa-check-circle"></i> Resume Uploaded</li>
+                        <li class="flex items-center gap-2 text-sm text-amber-500"><i class="fas fa-circle-notch"></i> Portfolio Link</li>
+                    </ul>
+                </div>
+            </div>
