@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Dashboard - Internship Management Portal</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: { 50: '#eef2ff', 600: '#4f46e5', 700: '#4338ca' }
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body class="bg-zinc-50 dark:bg-zinc-950 text-zinc-800 dark:text-zinc-100 flex h-screen overflow-hidden">
+
+  <!-- Sidebar Component -->
+  <aside id="student-sidebar-root"></aside>
+
+  <!-- Main Content Area -->
+  <div class="flex-1 flex flex-col min-w-0 overflow-hidden">
+    <!-- Topbar Component -->
+    <header id="student-topbar-root"></header>
+
+    <!-- Scrollable Body -->
+    <main id="student-dashboard-container" class="flex-1 overflow-y-auto p-4 sm:p-6 lg:p-8 space-y-6">
+      
+      <!-- Bento Hero Banner -->
+      <div class="bento-card p-6 sm:p-8 bg-gradient-to-r from-zinc-900 via-zinc-900 to-indigo-950 text-white border-zinc-800 flex flex-col md:flex-row items-start md:items-center justify-between gap-6 shadow-xl">
+        <div class="space-y-3">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-500/20 border border-indigo-500/30 text-indigo-300 text-xs font-bold backdrop-blur-md">
+            <span class="w-2 h-2 rounded-full bg-indigo-400 animate-pulse"></span>
+            <span>Fall 2026 Placement Drive Active</span>
+          </div>
+          <h1 class="text-2xl sm:text-3xl font-black font-heading tracking-tight">
+            Welcome back, <span id="dashboard-student-name" class="text-indigo-400">Mehedi</span>! 👋
+          </h1>
+          <p class="text-xs sm:text-sm text-zinc-300 max-w-xl leading-relaxed">
+            You have 2 upcoming technical interviews scheduled and 3 active applications currently under recruiter review.
+          </p>
+        </div>
+        <div class="flex items-center gap-3">
+          <a href="internships.html" class="px-5 py-3 rounded-full bg-indigo-600 hover:bg-indigo-500 text-white font-bold text-xs shadow-lg shadow-indigo-600/30 transition flex items-center gap-2">
+            <i class="fa-solid fa-magnifying-glass"></i> Find Internships
+          </a>
+          <a href="resume.html" class="px-4 py-3 rounded-full bg-zinc-800/80 hover:bg-zinc-800 text-zinc-200 font-bold text-xs border border-zinc-700/80 transition flex items-center gap-2">
+            <i class="fa-regular fa-file-pdf text-rose-400"></i> Resume Vault
+          </a>
+        </div>
+      </div>
+
+  
