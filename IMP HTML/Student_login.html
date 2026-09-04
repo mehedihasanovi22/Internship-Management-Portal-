@@ -3,105 +3,75 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Student Login | InternHub</title>
+    <title>Student Login | InternLink</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="../../css/style.css">
 </head>
-<body class="bg-slate-50 min-h-screen flex items-center justify-center p-4">
-
-    <div class="bg-white w-full max-w-4xl rounded-3xl shadow-2xl overflow-hidden flex flex-col md:flex-row">
-        <!-- Image Side -->
-        <div class="md:w-1/2 bg-indigo-600 p-12 text-white flex flex-col justify-between">
-            <div>
-                <a href="../../index.html" class="flex items-center gap-2 mb-12">
-                    <i class="fas fa-graduation-cap text-2xl"></i>
-                    <span class="text-2xl font-bold tracking-tight">InternHub</span>
+<body class="bg-slate-50 dark:bg-slate-900 min-h-screen flex items-center justify-center p-4">
+    <div class="max-w-md w-full bg-white dark:bg-slate-800 rounded-3xl shadow-2xl overflow-hidden border border-slate-100 dark:border-slate-700 animate-fade-in">
+        <div class="p-8">
+            <div class="text-center mb-8">
+                <a href="../../index.html" class="inline-flex items-center gap-2 mb-6">
+                    <div class="bg-primary-600 p-2 rounded-lg">
+                        <i class="fas fa-graduation-cap text-white text-xl"></i>
+                    </div>
+                    <span class="text-2xl font-bold dark:text-white">InternLink</span>
                 </a>
-                <h2 class="text-4xl font-bold leading-tight">Welcome Back to Your Journey!</h2>
-                <p class="mt-4 text-indigo-100">Log in to track your applications and discover new opportunities.</p>
+                <h2 class="text-2xl font-bold dark:text-white">Student Login</h2>
+                <p class="text-slate-500 mt-2">Welcome back! Please enter your details.</p>
             </div>
-            <div class="hidden md:block">
-                <img src="https://cdni.iconscout.com/illustration/premium/thumb/student-preparing-for-exam-4268352-3551717.png" alt="login-img" class="w-full">
-            </div>
-        </div>
 
-        <!-- Form Side -->
-        <div class="md:w-1/2 p-8 md:p-12">
-            <h3 class="text-2xl font-bold text-slate-800">Student Login</h3>
-            <p class="text-slate-500 text-sm mt-1">Don't have an account? <a href="register.html" class="text-indigo-600 font-bold">Register</a></p>
-
-            <form id="loginForm" class="mt-8 space-y-6">
+            <form id="loginForm" class="space-y-5">
                 <div>
-                    <label class="block text-sm font-semibold text-slate-700 mb-2">Email Address</label>
+                    <label class="block text-sm font-medium mb-2 dark:text-slate-300">Email Address</label>
                     <div class="relative">
-                        <i class="fas fa-envelope absolute left-4 top-1/2 -translate-y-1/2 text-slate-400"></i>
-                        <input type="email" required value="mehedi@university.edu" class="w-full pl-12 pr-4 py-3 rounded-xl border border-slate-200 focus:border-indigo-600 focus:ring-2 focus:ring-indigo-100 outline-none transition">
+                        <i class="fas fa-envelope absolute left-4 top-4 text-slate-400"></i>
+                        <input type="email" value="mehedi@example.com" class="w-full pl-12 pr-4 py-3 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl focus:ring-2 focus:ring-primary-500 outline-none transition dark:text-white" placeholder="name@email.com">
                     </div>
                 </div>
-
                 <div>
                     <div class="flex justify-between mb-2">
-                        <label class="block text-sm font-semibold text-slate-700">Password</label>
-                        <a href="#" class="text-sm text-indigo-600 hover:underline">Forgot?</a>
+                        <label class="text-sm font-medium dark:text-slate-300">Password</label>
+                        <a href="#" class="text-sm text-primary-600 hover:underline">Forgot password?</a>
                     </div>
                     <div class="relative">
-                        <i class="fas fa-lock absolute left-4 top-1/2 -translate-y-1/2 text-slate-400"></i>
-                        <input type="password" required value="123456" class="w-full pl-12 pr-4 py-3 rounded-xl border border-slate-200 focus:border-indigo-600 focus:ring-2 focus:ring-indigo-100 outline-none transition">
+                        <i class="fas fa-lock absolute left-4 top-4 text-slate-400"></i>
+                        <input type="password" value="123456" class="w-full pl-12 pr-4 py-3 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl focus:ring-2 focus:ring-primary-500 outline-none transition dark:text-white" placeholder="••••••••">
                     </div>
                 </div>
-
                 <div class="flex items-center gap-2">
-                    <input type="checkbox" id="remember" class="w-4 h-4 text-indigo-600 border-slate-300 rounded focus:ring-indigo-500">
-                    <label for="remember" class="text-sm text-slate-600">Remember me</label>
+                    <input type="checkbox" id="remember" class="w-4 h-4 rounded border-slate-300 text-primary-600">
+                    <label for="remember" class="text-sm text-slate-600 dark:text-slate-400">Remember me for 30 days</label>
                 </div>
-
-                <button type="submit" class="w-full bg-indigo-600 text-white font-bold py-4 rounded-xl hover:bg-indigo-700 transition shadow-lg shadow-indigo-100">
+                <button type="submit" class="w-full bg-primary-600 text-white py-3 rounded-xl font-bold hover:bg-primary-700 transition transform hover:scale-[1.02] shadow-lg shadow-primary-500/25">
                     Sign In
                 </button>
-
-                <div class="relative my-8">
-                    <div class="absolute inset-0 flex items-center"><div class="w-full border-t border-slate-200"></div></div>
-                    <div class="relative flex justify-center text-sm"><span class="px-2 bg-white text-slate-500">Or continue with</span></div>
-                </div>
-
-                <div class="grid grid-cols-2 gap-4">
-                    <button type="button" class="flex items-center justify-center gap-2 py-3 border border-slate-200 rounded-xl hover:bg-slate-50 transition">
-                        <img src="https://www.svgrepo.com/show/475656/google-color.svg" class="w-5" alt="google">
-                        <span class="text-sm font-semibold">Google</span>
-                    </button>
-                    <button type="button" class="flex items-center justify-center gap-2 py-3 border border-slate-200 rounded-xl hover:bg-slate-50 transition">
-                        <i class="fab fa-github text-lg"></i>
-                        <span class="text-sm font-semibold">GitHub</span>
-                    </button>
-                </div>
             </form>
+
+            <div class="mt-8 pt-8 border-t border-slate-100 dark:border-slate-700 text-center">
+                <p class="text-slate-600 dark:text-slate-400">Don't have an account? <a href="register.html" class="text-primary-600 font-bold hover:underline">Sign up</a></p>
+                <div class="mt-4">
+                    <a href="../company/login.html" class="text-sm text-slate-500 hover:text-purple-600 flex items-center justify-center gap-2">
+                        <i class="fas fa-building"></i> Are you a Company? Login here
+                    </a>
+                </div>
+            </div>
         </div>
     </div>
 
     <script>
         document.getElementById('loginForm').addEventListener('submit', (e) => {
             e.preventDefault();
-            // Mock Login Logic
-            const demoUser = {
-                id: 'S001',
+            // Simulate Authentication
+            localStorage.setItem('currentUser', JSON.stringify({
                 name: 'Mehedi Hasan',
-                email: 'mehedi@university.edu',
-                role: 'student',
-                activeRole: 'student'
-            };
-            localStorage.setItem('currentUser', JSON.stringify(demoUser));
+                type: 'student',
+                id: 'CSE-2022-001',
+                email: 'mehedi@example.com'
+            }));
             window.location.href = 'dashboard.html';
         });
     </script>
-
-    <!-- Student_login.html  -->
-<form>
-    
-    <a href="Student_Dashboard.html" class="w-full bg-indigo-600 text-white text-center block py-4 rounded-xl">
-        Sign In
-    </a>
-</form>
-
 </body>
 </html>

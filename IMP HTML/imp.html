@@ -1,243 +1,769 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>InternLink | Find Your Future Internship</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="css/style.css">
-    <script>
-        tailwind.config = {
-            darkMode: 'class',
-            theme: {
-                extend: {
-                    colors: {
-                        primary: {"50":"#eff6ff","100":"#dbeafe","200":"#bfdbfe","300":"#93c5fd","400":"#60a5fa","500":"#3b82f6","600":"#2563eb","700":"#1d4ed8","800":"#1e40af","900":"#1e3a8a","950":"#172554"}
-                    }
-                }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Internship Management Portal - University CSE Project</title>
+  <meta name="description" content="A comprehensive, modern, colorful university internship management portal connecting ambitious CSE students with top technology companies.">
+
+  <!-- Tailwind CSS CDN with full configuration -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#eef2ff',
+              100: '#e0e7ff',
+              500: '#6366f1',
+              600: '#4f46e5',
+              700: '#4338ca',
             }
+          }
         }
-    </script>
+      }
+    }
+  </script>
+
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/style.css">
 </head>
-<body class="bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-slate-100 transition-colors duration-300">
+<body class="bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-100 transition-colors duration-200">
 
-    <!-- Navbar -->
-    <nav class="fixed w-full z-50 top-0 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between h-16 items-center">
-                <div class="flex items-center gap-2">
-                    <div class="bg-primary-600 p-2 rounded-lg">
-                        <i class="fas fa-graduation-cap text-white text-xl"></i>
-                    </div>
-                    <span class="text-2xl font-bold bg-gradient-to-r from-primary-600 to-purple-600 bg-clip-text text-transparent underline-offset-4">InternLink</span>
+  <!-- ================= NAVBAR ================= -->
+  <header class="sticky top-0 z-40 bg-white/90 dark:bg-slate-900/90 backdrop-blur-md border-b border-slate-200/80 dark:border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20">
+        
+        <!-- Logo -->
+        <a href="index.html" class="flex items-center gap-3 group">
+          <div class="w-11 h-11 rounded-2xl bg-gradient-to-tr from-indigo-600 via-indigo-500 to-cyan-400 flex items-center justify-center text-white shadow-lg shadow-indigo-600/25 group-hover:scale-105 transition transform">
+            <i class="fa-solid fa-graduation-cap text-xl"></i>
+          </div>
+          <div>
+            <span class="text-xl font-extrabold tracking-tight font-heading text-slate-900 dark:text-white block leading-tight">
+              INTERN<span class="text-indigo-600 dark:text-indigo-400">PORTAL</span>
+            </span>
+            <span class="text-[10px] font-bold text-slate-400 dark:text-slate-500 tracking-wider uppercase">University CSE Project</span>
+          </div>
+        </a>
+
+        <!-- Desktop Navigation Links -->
+        <nav class="hidden md:flex items-center gap-8 text-sm font-semibold text-slate-600 dark:text-slate-300">
+          <a href="index.html" class="text-indigo-600 dark:text-indigo-400 transition">Home</a>
+          <a href="pages/student/internships.html" class="hover:text-indigo-600 dark:hover:text-indigo-400 transition">Internships</a>
+          <a href="pages/about.html" class="hover:text-indigo-600 dark:hover:text-indigo-400 transition">About</a>
+          <a href="pages/contact.html" class="hover:text-indigo-600 dark:hover:text-indigo-400 transition">Contact</a>
+        </nav>
+
+        <!-- Right Action Buttons & Theme Toggle -->
+        <div class="hidden md:flex items-center gap-3">
+          <!-- Theme Toggle Button -->
+          <button class="theme-toggle-btn p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition" aria-label="Toggle Theme">
+            <i class="fa-regular fa-moon dark:hidden text-base"></i>
+            <i class="fa-regular fa-sun hidden dark:block text-base text-amber-400"></i>
+          </button>
+
+          <!-- Student Login Link -->
+          <a href="pages/student/login.html" class="px-4 py-2.5 rounded-xl border border-indigo-200 dark:border-indigo-900 text-indigo-600 dark:text-indigo-400 text-xs font-bold hover:bg-indigo-50 dark:hover:bg-indigo-950/40 transition">
+            Student Login
+          </a>
+
+          <!-- Company Login Link -->
+          <a href="pages/company/login.html" class="px-4 py-2.5 rounded-xl border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-200 text-xs font-bold hover:bg-slate-100 dark:hover:bg-slate-800 transition">
+            Company Login
+          </a>
+
+          <!-- Get Started / Register Button -->
+          <a href="pages/student/register.html" class="px-5 py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-bold shadow-md shadow-indigo-600/25 transition flex items-center gap-1.5">
+            <span>Register Now</span>
+            <i class="fa-solid fa-arrow-right text-[10px]"></i>
+          </a>
+        </div>
+
+        <!-- Mobile Hamburger Button -->
+        <div class="flex items-center gap-2 md:hidden">
+          <button class="theme-toggle-btn p-2 rounded-lg text-slate-600 dark:text-slate-300">
+            <i class="fa-regular fa-moon dark:hidden"></i>
+            <i class="fa-regular fa-sun hidden dark:block text-amber-400"></i>
+          </button>
+          <button id="mobile-menu-btn" class="p-2.5 rounded-xl text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 text-xl" aria-label="Open Menu">
+            <i class="fa-solid fa-bars"></i>
+          </button>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Mobile Drawer Menu -->
+    <div id="mobile-menu" class="hidden md:hidden fixed inset-x-0 top-20 bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 p-6 space-y-4 shadow-2xl z-50">
+      <a href="index.html" class="block font-semibold text-indigo-600 dark:text-indigo-400">Home</a>
+      <a href="pages/student/internships.html" class="block font-semibold text-slate-700 dark:text-slate-200">Browse Internships</a>
+      <a href="pages/about.html" class="block font-semibold text-slate-700 dark:text-slate-200">About Platform</a>
+      <a href="pages/contact.html" class="block font-semibold text-slate-700 dark:text-slate-200">Contact Support</a>
+      
+      <div class="pt-4 border-t border-slate-100 dark:border-slate-800 grid grid-cols-2 gap-3">
+        <a href="pages/student/login.html" class="py-2.5 text-center rounded-xl border border-indigo-200 text-indigo-600 dark:text-indigo-400 font-bold text-xs">Student Portal</a>
+        <a href="pages/company/login.html" class="py-2.5 text-center rounded-xl border border-slate-200 text-slate-700 dark:text-slate-200 font-bold text-xs">Company Portal</a>
+        <a href="pages/student/register.html" class="col-span-2 py-3 text-center rounded-xl bg-indigo-600 text-white font-bold text-xs shadow-md">Create Free Account</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ================= HERO SECTION ================= -->
+  <section class="relative overflow-hidden pt-10 pb-16 md:py-20 bg-gradient-to-b from-indigo-50/70 via-white to-zinc-50 dark:from-zinc-950 dark:via-zinc-900 dark:to-zinc-950">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+        
+        <!-- Left Hero Content -->
+        <div class="lg:col-span-7 text-center lg:text-left space-y-6">
+          <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-indigo-500/10 dark:bg-indigo-500/20 border border-indigo-500/30 text-indigo-700 dark:text-indigo-300 text-xs font-bold tracking-wide">
+            <span class="w-2 h-2 rounded-full bg-indigo-500 animate-ping"></span>
+            <span>University CSE Placement & Corporate Recruitment System</span>
+          </div>
+
+          <h1 class="text-3xl sm:text-5xl md:text-6xl font-black tracking-tight font-heading text-zinc-900 dark:text-white leading-[1.12]">
+            Bridging Students & <br class="hidden sm:block" />
+            <span class="gradient-text">Top Hiring Companies.</span>
+          </h1>
+
+          <p class="text-sm sm:text-base text-zinc-600 dark:text-zinc-300 max-w-2xl mx-auto lg:mx-0 leading-relaxed font-normal">
+            A comprehensive dual-role portal connecting ambitious CSE students with verified technology companies. Find 20+ internships, manage resumes, track applications, and screen candidate talent with integrated video interviews.
+          </p>
+
+          <!-- Dual Portal Direct Entry Points -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+            <!-- Student Portal Box -->
+            <div class="bento-card p-5 bg-white dark:bg-zinc-900/90 border-indigo-200 dark:border-indigo-900/60 shadow-sm text-left hover-card-lift">
+              <div class="flex items-center gap-3 mb-2">
+                <div class="w-8 h-8 rounded-full bg-indigo-50 dark:bg-indigo-950 text-indigo-600 dark:text-indigo-400 flex items-center justify-center text-xs">
+                  <i class="fa-solid fa-graduation-cap"></i>
                 </div>
-
-                <!-- Desktop Menu -->
-                <div class="hidden md:flex items-center space-x-8">
-                    <a href="index.html" class="font-medium hover:text-primary-600 transition">Home</a>
-                    <a href="#features" class="font-medium hover:text-primary-600 transition">Features</a>
-                    <a href="pages/about.html" class="font-medium hover:text-primary-600 transition">About</a>
-                    <a href="pages/contact.html" class="font-medium hover:text-primary-600 transition">Contact</a>
-                    
-                    <div class="flex items-center gap-4 border-l pl-8 border-slate-200 dark:border-slate-700">
-                        <button id="theme-toggle" class="p-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 transition">
-                            <i class="fas fa-moon dark:hidden"></i>
-                            <i class="fas fa-sun hidden dark:block"></i>
-                        </button>
-                        <a href="pages/student/login.html" class="font-medium text-slate-600 dark:text-slate-400 hover:text-primary-600">Login</a>
-                        <a href="pages/student/register.html" class="bg-primary-600 text-white px-5 py-2 rounded-full font-medium hover:bg-primary-700 transition shadow-lg shadow-primary-500/30">Register</a>
-                    </div>
+                <div>
+                  <h4 class="text-xs font-bold text-zinc-900 dark:text-white">For Students</h4>
+                  <p class="text-[10px] text-zinc-400">Applications & Resume Vault</p>
                 </div>
+              </div>
+              <div class="flex items-center gap-2 mt-3">
+                <a href="pages/student/dashboard.html" class="flex-1 py-2 text-center rounded-full bg-indigo-600 hover:bg-indigo-500 text-white font-bold text-xs shadow-md transition">
+                  Student Portal
+                </a>
+                <a href="pages/student/internships.html" class="px-3 py-2 rounded-full border border-zinc-200 dark:border-zinc-700 text-zinc-600 dark:text-zinc-300 hover:border-indigo-500 text-xs font-bold transition" title="Search Jobs">
+                  <i class="fa-solid fa-magnifying-glass"></i>
+                </a>
+              </div>
+            </div>
 
-                <!-- Mobile Toggle -->
-                <button class="md:hidden text-2xl" id="mobile-menu-btn">
-                    <i class="fas fa-bars"></i>
+            <!-- Company Recruiter Portal Box -->
+            <div class="bento-card p-5 bg-white dark:bg-zinc-900/90 border-cyan-200 dark:border-cyan-900/60 shadow-sm text-left hover-card-lift">
+              <div class="flex items-center gap-3 mb-2">
+                <div class="w-8 h-8 rounded-full bg-cyan-50 dark:bg-cyan-950 text-cyan-600 dark:text-cyan-400 flex items-center justify-center text-xs">
+                  <i class="fa-solid fa-building"></i>
+                </div>
+                <div>
+                  <h4 class="text-xs font-bold text-zinc-900 dark:text-white">For Companies</h4>
+                  <p class="text-[10px] text-zinc-400">ATS Screening & Job Posting</p>
+                </div>
+              </div>
+              <div class="flex items-center gap-2 mt-3">
+                <a href="pages/company/dashboard.html" class="flex-1 py-2 text-center rounded-full bg-cyan-600 hover:bg-cyan-500 text-white font-bold text-xs shadow-md transition">
+                  Company Portal
+                </a>
+                <a href="pages/company/post-internship.html" class="px-3 py-2 rounded-full border border-zinc-200 dark:border-zinc-700 text-zinc-600 dark:text-zinc-300 hover:border-cyan-500 text-xs font-bold transition" title="Post Job">
+                  <i class="fa-solid fa-plus"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Hero Trust Badges -->
+          <div class="pt-2 flex flex-wrap items-center justify-center lg:justify-start gap-4 text-xs font-semibold text-zinc-500 dark:text-zinc-400">
+            <span class="flex items-center gap-1.5"><i class="fa-solid fa-check text-emerald-500"></i> Full Student & Company Portals</span>
+            <span class="flex items-center gap-1.5"><i class="fa-solid fa-check text-emerald-500"></i> Local Persistence & CRUD</span>
+            <span class="flex items-center gap-1.5"><i class="fa-solid fa-check text-emerald-500"></i> Video Interview Pipeline</span>
+          </div>
+        </div>
+
+        <!-- Right Hero Visual / Interactive Dual Portal Card -->
+        <div class="lg:col-span-5 relative">
+          <div class="relative mx-auto max-w-md lg:max-w-none">
+            <div class="absolute -inset-1.5 bg-gradient-to-r from-indigo-500 to-cyan-500 rounded-3xl blur-xl opacity-25 animate-pulse"></div>
+
+            <div class="relative bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-3xl p-6 shadow-2xl space-y-4">
+              
+              <!-- Tab Switcher (Student vs Company) -->
+              <div class="flex items-center p-1 bg-zinc-100 dark:bg-zinc-800 rounded-full">
+                <button type="button" id="hero-tab-student" onclick="switchHeroPortal('student')" class="flex-1 py-2 rounded-full text-xs font-bold transition bg-white dark:bg-zinc-900 text-indigo-600 dark:text-indigo-400 shadow-sm flex items-center justify-center gap-2">
+                  <i class="fa-solid fa-user-graduate"></i> Student View
                 </button>
-            </div>
-        </div>
-    </nav>
+                <button type="button" id="hero-tab-company" onclick="switchHeroPortal('company')" class="flex-1 py-2 rounded-full text-xs font-bold transition text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white flex items-center justify-center gap-2">
+                  <i class="fa-solid fa-building"></i> Company View
+                </button>
+              </div>
 
-    <!-- Hero Section -->
-    <section class="pt-32 pb-20 px-4">
-        <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center">
-            <div class="space-y-8 animate-fade-in-left">
-                <h1 class="text-5xl md:text-7xl font-extrabold leading-tight">
-                    Find Your <span class="text-primary-600">Internship</span>. <br>
-                    Build Your <span class="bg-gradient-to-r from-purple-600 to-pink-500 bg-clip-text text-transparent">Future</span>.
-                </h1>
-                <p class="text-lg text-slate-600 dark:text-slate-400 max-w-lg">
-                    The ultimate bridge between ambitious students and industry-leading companies. Manage applications, schedule interviews, and land your dream role.
-                </p>
-                <div class="flex flex-wrap gap-4">
-                    <a href="pages/student/register.html" class="px-8 py-4 bg-primary-600 text-white rounded-xl font-bold hover:scale-105 transition transform shadow-xl shadow-primary-500/25 flex items-center gap-2">
-                        <i class="fas fa-user-graduate"></i> Join as Student
-                    </a>
-                    <a href="pages/company/register.html" class="px-8 py-4 bg-white dark:bg-slate-800 border-2 border-slate-200 dark:border-slate-700 rounded-xl font-bold hover:bg-slate-50 dark:hover:bg-slate-700 transition flex items-center gap-2">
-                        <i class="fas fa-building"></i> Join as Company
-                    </a>
+              <!-- Student Portal Preview -->
+              <div id="hero-preview-student" class="space-y-3">
+                <div class="flex items-center justify-between pb-2 border-b border-zinc-100 dark:border-zinc-800">
+                  <div class="flex items-center gap-2">
+                    <span class="w-2.5 h-2.5 rounded-full bg-emerald-500"></span>
+                    <h3 class="font-bold text-xs text-zinc-900 dark:text-white">Active Student Workspace</h3>
+                  </div>
+                  <a href="pages/student/dashboard.html" class="text-[11px] font-bold text-indigo-600 dark:text-indigo-400 hover:underline">Open &rarr;</a>
                 </div>
-                <div class="flex items-center gap-6 pt-4">
-                    <div class="flex -space-x-3">
-                        <img src="https://i.pravatar.cc/100?u=1" class="w-10 h-10 rounded-full border-2 border-white dark:border-slate-900" alt="User">
-                        <img src="https://i.pravatar.cc/100?u=2" class="w-10 h-10 rounded-full border-2 border-white dark:border-slate-900" alt="User">
-                        <img src="https://i.pravatar.cc/100?u=3" class="w-10 h-10 rounded-full border-2 border-white dark:border-slate-900" alt="User">
-                        <div class="w-10 h-10 rounded-full bg-slate-200 dark:bg-slate-700 flex items-center justify-center text-xs font-bold">+5k</div>
+
+                <div class="p-3.5 rounded-2xl bg-zinc-50 dark:bg-zinc-800/60 border border-zinc-200/80 dark:border-zinc-800 flex items-center justify-between">
+                  <div class="flex items-center gap-3">
+                    <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=100&auto=format&fit=crop&q=80" alt="TechNova" class="w-9 h-9 rounded-xl object-cover" />
+                    <div>
+                      <h4 class="font-bold text-xs text-zinc-900 dark:text-white">Frontend Developer Intern</h4>
+                      <p class="text-[10px] text-zinc-500">TechNova Solutions • ৳ 25,000/mo</p>
                     </div>
-                    <p class="text-sm font-medium text-slate-500">Trusted by 5,000+ students nationwide</p>
+                  </div>
+                  <span class="px-2 py-0.5 bg-emerald-500/10 text-emerald-500 border border-emerald-500/20 rounded-full text-[10px] font-bold">Interviewing</span>
                 </div>
-            </div>
-            <div class="relative animate-fade-in-right">
-                <div class="absolute -top-10 -left-10 w-64 h-64 bg-primary-500/10 rounded-full blur-3xl"></div>
-                <div class="absolute -bottom-10 -right-10 w-64 h-64 bg-purple-500/10 rounded-full blur-3xl"></div>
-                <img src="https://img.freepik.com/free-vector/internship-job-concept-illustration_114360-6323.jpg" alt="Hero Illustration" class="relative z-10 w-full drop-shadow-2xl rounded-3xl">
-            </div>
-        </div>
-    </section>
 
-    <!-- Stats Section -->
-    <section class="py-16 bg-white dark:bg-slate-800/50">
-        <div class="max-w-7xl mx-auto px-4 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-            <div class="p-6">
-                <div class="text-4xl font-bold text-primary-600 mb-2">5,000+</div>
-                <div class="text-slate-500 font-medium">Students</div>
-            </div>
-            <div class="p-6 border-l border-slate-100 dark:border-slate-700">
-                <div class="text-4xl font-bold text-purple-600 mb-2">500+</div>
-                <div class="text-slate-500 font-medium">Companies</div>
-            </div>
-            <div class="p-6 border-l border-slate-100 dark:border-slate-700">
-                <div class="text-4xl font-bold text-cyan-600 mb-2">1,200+</div>
-                <div class="text-slate-500 font-medium">Internships</div>
-            </div>
-            <div class="p-6 border-l border-slate-100 dark:border-slate-700">
-                <div class="text-4xl font-bold text-teal-600 mb-2">3,500+</div>
-                <div class="text-slate-500 font-medium">Applications</div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Categories -->
-    <section class="py-20 px-4 max-w-7xl mx-auto">
-        <div class="flex justify-between items-end mb-12">
-            <div>
-                <h2 class="text-3xl font-bold mb-4">Popular Categories</h2>
-                <p class="text-slate-500">Explore roles in the most in-demand industries.</p>
-            </div>
-            <a href="pages/student/internships.html" class="text-primary-600 font-bold hover:underline">View All Categories →</a>
-        </div>
-        <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
-            <!-- Category Cards -->
-            <div class="p-6 bg-white dark:bg-slate-800 rounded-2xl border border-slate-100 dark:border-slate-700 hover:shadow-xl hover:border-primary-500/50 transition cursor-pointer group">
-                <div class="w-12 h-12 bg-blue-100 dark:bg-blue-900/30 rounded-xl flex items-center justify-center text-blue-600 mb-4 group-hover:scale-110 transition">
-                    <i class="fas fa-code text-xl"></i>
-                </div>
-                <h3 class="font-bold">Development</h3>
-                <p class="text-xs text-slate-500 mt-1">450+ Openings</p>
-            </div>
-            <div class="p-6 bg-white dark:bg-slate-800 rounded-2xl border border-slate-100 dark:border-slate-700 hover:shadow-xl hover:border-primary-500/50 transition cursor-pointer group">
-                <div class="w-12 h-12 bg-purple-100 dark:bg-purple-900/30 rounded-xl flex items-center justify-center text-purple-600 mb-4 group-hover:scale-110 transition">
-                    <i class="fas fa-paint-brush text-xl"></i>
-                </div>
-                <h3 class="font-bold">UI/UX Design</h3>
-                <p class="text-xs text-slate-500 mt-1">120+ Openings</p>
-            </div>
-            <div class="p-6 bg-white dark:bg-slate-800 rounded-2xl border border-slate-100 dark:border-slate-700 hover:shadow-xl hover:border-primary-500/50 transition cursor-pointer group">
-                <div class="w-12 h-12 bg-amber-100 dark:bg-amber-900/30 rounded-xl flex items-center justify-center text-amber-600 mb-4 group-hover:scale-110 transition">
-                    <i class="fas fa-chart-line text-xl"></i>
-                </div>
-                <h3 class="font-bold">Marketing</h3>
-                <p class="text-xs text-slate-500 mt-1">85+ Openings</p>
-            </div>
-            <div class="p-6 bg-white dark:bg-slate-800 rounded-2xl border border-slate-100 dark:border-slate-700 hover:shadow-xl hover:border-primary-500/50 transition cursor-pointer group">
-                <div class="w-12 h-12 bg-green-100 dark:bg-green-900/30 rounded-xl flex items-center justify-center text-green-600 mb-4 group-hover:scale-110 transition">
-                    <i class="fas fa-brain text-xl"></i>
-                </div>
-                <h3 class="font-bold">Data Science</h3>
-                <p class="text-xs text-slate-500 mt-1">210+ Openings</p>
-            </div>
-            <div class="p-6 bg-white dark:bg-slate-800 rounded-2xl border border-slate-100 dark:border-slate-700 hover:shadow-xl hover:border-primary-500/50 transition cursor-pointer group">
-                <div class="w-12 h-12 bg-red-100 dark:bg-red-900/30 rounded-xl flex items-center justify-center text-red-600 mb-4 group-hover:scale-110 transition">
-                    <i class="fas fa-shield-alt text-xl"></i>
-                </div>
-                <h3 class="font-bold">Cyber Security</h3>
-                <p class="text-xs text-slate-500 mt-1">55+ Openings</p>
-            </div>
-            <div class="p-6 bg-white dark:bg-slate-800 rounded-2xl border border-slate-100 dark:border-slate-700 hover:shadow-xl hover:border-primary-500/50 transition cursor-pointer group">
-                <div class="w-12 h-12 bg-cyan-100 dark:bg-cyan-900/30 rounded-xl flex items-center justify-center text-cyan-600 mb-4 group-hover:scale-110 transition">
-                    <i class="fas fa-briefcase text-xl"></i>
-                </div>
-                <h3 class="font-bold">Finance</h3>
-                <p class="text-xs text-slate-500 mt-1">40+ Openings</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- CTA Section -->
-    <section class="py-20 px-4">
-        <div class="max-w-5xl mx-auto bg-gradient-to-br from-primary-600 to-indigo-700 rounded-[3rem] p-12 md:p-20 text-center text-white relative overflow-hidden shadow-2xl">
-            <div class="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full blur-3xl -mr-20 -mt-20"></div>
-            <div class="relative z-10">
-                <h2 class="text-4xl md:text-5xl font-bold mb-6">Ready to kickstart your career?</h2>
-                <p class="text-primary-100 text-lg mb-10 max-w-2xl mx-auto">Join thousands of students who have already found life-changing internship opportunities through InternLink.</p>
-                <div class="flex flex-col sm:flex-row justify-center gap-4">
-                    <a href="pages/student/register.html" class="bg-white text-primary-600 px-10 py-4 rounded-xl font-bold hover:bg-slate-100 transition shadow-lg">Create Student Account</a>
-                    <a href="pages/company/register.html" class="bg-primary-500/30 border border-white/30 backdrop-blur-sm text-white px-10 py-4 rounded-xl font-bold hover:bg-white/10 transition">Hire Talent</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="bg-white dark:bg-slate-950 border-t border-slate-200 dark:border-slate-800 pt-20 pb-10">
-        <div class="max-w-7xl mx-auto px-4 grid grid-cols-2 md:grid-cols-4 gap-12 mb-16">
-            <div class="col-span-2 md:col-span-1">
-                <div class="flex items-center gap-2 mb-6">
-                    <div class="bg-primary-600 p-2 rounded-lg">
-                        <i class="fas fa-graduation-cap text-white text-xl"></i>
+                <div class="p-3.5 rounded-2xl bg-zinc-50 dark:bg-zinc-800/60 border border-zinc-200/80 dark:border-zinc-800 flex items-center justify-between">
+                  <div class="flex items-center gap-3">
+                    <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=100&auto=format&fit=crop&q=80" alt="AI Vision Labs" class="w-9 h-9 rounded-xl object-cover" />
+                    <div>
+                      <h4 class="font-bold text-xs text-zinc-900 dark:text-white">Machine Learning & AI Intern</h4>
+                      <p class="text-[10px] text-zinc-500">AI Vision Labs • ৳ 30,000/mo</p>
                     </div>
-                    <span class="text-2xl font-bold">InternLink</span>
+                  </div>
+                  <span class="px-2 py-0.5 bg-indigo-500/10 text-indigo-500 border border-indigo-500/20 rounded-full text-[10px] font-bold">In Review</span>
                 </div>
-                <p class="text-slate-500 mb-6">Empowering the next generation of professionals through meaningful internships.</p>
-                <div class="flex gap-4">
-                    <a href="#" class="w-10 h-10 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center hover:bg-primary-600 hover:text-white transition"><i class="fab fa-linkedin-in"></i></a>
-                    <a href="#" class="w-10 h-10 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center hover:bg-primary-600 hover:text-white transition"><i class="fab fa-twitter"></i></a>
-                    <a href="#" class="w-10 h-10 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center hover:bg-primary-600 hover:text-white transition"><i class="fab fa-github"></i></a>
-                </div>
-            </div>
-            <div>
-                <h4 class="font-bold mb-6">For Students</h4>
-                <ul class="space-y-4 text-slate-500">
-                    <li><a href="pages/student/internships.html" class="hover:text-primary-600">Browse Internships</a></li>
-                    <li><a href="pages/student/profile.html" class="hover:text-primary-600">Student Profile</a></li>
-                    <li><a href="pages/student/applications.html" class="hover:text-primary-600">Track Applications</a></li>
-                    <li><a href="pages/student/resume.html" class="hover:text-primary-600">Resume Builder</a></li>
-                </ul>
-            </div>
-            <div>
-                <h4 class="font-bold mb-6">For Companies</h4>
-                <ul class="space-y-4 text-slate-500">
-                    <li><a href="pages/company/post-internship.html" class="hover:text-primary-600">Post Internship</a></li>
-                    <li><a href="pages/company/applicants.html" class="hover:text-primary-600">Manage Applicants</a></li>
-                    <li><a href="pages/company/interviews.html" class="hover:text-primary-600">Schedule Interviews</a></li>
-                    <li><a href="pages/company/settings.html" class="hover:text-primary-600">Company Settings</a></li>
-                </ul>
-            </div>
-            <div>
-                <h4 class="font-bold mb-6">Support</h4>
-                <ul class="space-y-4 text-slate-500">
-                    <li><a href="pages/about.html" class="hover:text-primary-600">About Us</a></li>
-                    <li><a href="pages/contact.html" class="hover:text-primary-600">Contact Support</a></li>
-                    <li><a href="#" class="hover:text-primary-600">Privacy Policy</a></li>
-                    <li><a href="#" class="hover:text-primary-600">Terms of Service</a></li>
-                </ul>
-            </div>
-        </div>
-        <div class="max-w-7xl mx-auto px-4 pt-8 border-t border-slate-100 dark:border-slate-800 text-center text-slate-500 text-sm">
-            &copy; 2026 InternLink. All rights reserved. Designed for University Project.
-        </div>
-    </footer>
 
-    <script src="js/main.js"></script>
+                <a href="pages/student/dashboard.html" class="block w-full py-2.5 text-center rounded-full bg-indigo-600 hover:bg-indigo-500 text-white font-bold text-xs shadow-md transition">
+                  Go to Student Dashboard &rarr;
+                </a>
+              </div>
+
+              <!-- Company Portal Preview (Hidden by default, switched on click) -->
+              <div id="hero-preview-company" class="hidden space-y-3">
+                <div class="flex items-center justify-between pb-2 border-b border-zinc-100 dark:border-zinc-800">
+                  <div class="flex items-center gap-2">
+                    <span class="w-2.5 h-2.5 rounded-full bg-cyan-500"></span>
+                    <h3 class="font-bold text-xs text-zinc-900 dark:text-white">Corporate Recruitment Console</h3>
+                  </div>
+                  <a href="pages/company/dashboard.html" class="text-[11px] font-bold text-cyan-600 dark:text-cyan-400 hover:underline">Open &rarr;</a>
+                </div>
+
+                <div class="p-3.5 rounded-2xl bg-zinc-50 dark:bg-zinc-800/60 border border-zinc-200/80 dark:border-zinc-800 flex items-center justify-between">
+                  <div class="flex items-center gap-3">
+                    <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&auto=format&fit=crop&q=80" alt="Candidate" class="w-9 h-9 rounded-full object-cover" />
+                    <div>
+                      <h4 class="font-bold text-xs text-zinc-900 dark:text-white">Mehedi Hasan</h4>
+                      <p class="text-[10px] text-zinc-500">Candidate • React, TypeScript, Node</p>
+                    </div>
+                  </div>
+                  <span class="px-2 py-0.5 bg-cyan-500/10 text-cyan-500 border border-cyan-500/20 rounded-full text-[10px] font-bold">Screen Applicant</span>
+                </div>
+
+                <div class="p-3.5 rounded-2xl bg-zinc-50 dark:bg-zinc-800/60 border border-zinc-200/80 dark:border-zinc-800 flex items-center justify-between">
+                  <div class="flex items-center gap-3">
+                    <div class="w-9 h-9 rounded-xl bg-cyan-100 dark:bg-cyan-950 text-cyan-600 dark:text-cyan-400 flex items-center justify-center font-bold text-xs">
+                      <i class="fa-solid fa-list-check"></i>
+                    </div>
+                    <div>
+                      <h4 class="font-bold text-xs text-zinc-900 dark:text-white">3 Active Openings Posted</h4>
+                      <p class="text-[10px] text-zinc-500">12 Total Candidate Applications</p>
+                    </div>
+                  </div>
+                  <span class="px-2 py-0.5 bg-emerald-500/10 text-emerald-500 border border-emerald-500/20 rounded-full text-[10px] font-bold">Live ATS</span>
+                </div>
+
+                <a href="pages/company/dashboard.html" class="block w-full py-2.5 text-center rounded-full bg-cyan-600 hover:bg-cyan-500 text-white font-bold text-xs shadow-md transition">
+                  Go to Company Dashboard &rarr;
+                </a>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= STATISTICS BAR ================= -->
+  <section class="py-12 bg-white dark:bg-zinc-900 border-y border-zinc-200/80 dark:border-zinc-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+        <div class="space-y-1">
+          <p class="text-3xl sm:text-4xl font-black font-heading text-indigo-600 dark:text-indigo-400">5,000+</p>
+          <p class="text-xs font-bold text-zinc-500 uppercase tracking-wider">Registered Students</p>
+        </div>
+        <div class="space-y-1">
+          <p class="text-3xl sm:text-4xl font-black font-heading text-cyan-600 dark:text-cyan-400">500+</p>
+          <p class="text-xs font-bold text-zinc-500 uppercase tracking-wider">Hiring Partners</p>
+        </div>
+        <div class="space-y-1">
+          <p class="text-3xl sm:text-4xl font-black font-heading text-purple-600 dark:text-purple-400">1,200+</p>
+          <p class="text-xs font-bold text-zinc-500 uppercase tracking-wider">Internships Posted</p>
+        </div>
+        <div class="space-y-1">
+          <p class="text-3xl sm:text-4xl font-black font-heading text-emerald-600 dark:text-emerald-400">96.8%</p>
+          <p class="text-xs font-bold text-zinc-500 uppercase tracking-wider">Placement Success Rate</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= INTERACTIVE WORKPLACES & CATEGORIES (ON-CLICK EXPLORER) ================= -->
+  <section class="py-20 bg-zinc-50 dark:bg-zinc-950">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10">
+        <div>
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 text-xs font-bold mb-2">
+            <i class="fa-solid fa-layer-group"></i> Interactive Field Selector
+          </div>
+          <h2 class="text-2xl sm:text-3xl font-black font-heading text-zinc-900 dark:text-white">Explore Workplaces by Category</h2>
+          <p class="text-zinc-600 dark:text-zinc-400 text-xs sm:text-sm mt-1">Click on any field below to reveal active workplace openings, verified companies, and stipends.</p>
+        </div>
+        <a href="pages/student/internships.html" class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 text-xs font-bold text-zinc-700 dark:text-zinc-300 hover:border-indigo-500 transition self-start md:self-auto">
+          <span>View All Listings</span>
+          <i class="fa-solid fa-arrow-right text-[10px]"></i>
+        </a>
+      </div>
+
+      <!-- Category Filter Pills (Click to Show) -->
+      <div class="flex flex-wrap gap-2.5 pb-6 border-b border-zinc-200 dark:border-zinc-800" id="home-category-filters">
+        <button type="button" onclick="selectHomeCategory('Software & Development')" class="home-cat-btn px-4 py-2.5 rounded-full text-xs font-bold transition bg-indigo-600 text-white shadow-sm flex items-center gap-2" data-cat="Software & Development">
+          <i class="fa-solid fa-code"></i>
+          <span>Software & Dev</span>
+          <span class="px-2 py-0.5 rounded-full bg-white/20 text-[10px]">24</span>
+        </button>
+        <button type="button" onclick="selectHomeCategory('Data & AI')" class="home-cat-btn px-4 py-2.5 rounded-full text-xs font-bold transition bg-white dark:bg-zinc-900 text-zinc-700 dark:text-zinc-300 border border-zinc-200 dark:border-zinc-800 hover:border-indigo-500 flex items-center gap-2" data-cat="Data & AI">
+          <i class="fa-solid fa-brain text-cyan-500"></i>
+          <span>Data & AI</span>
+          <span class="px-2 py-0.5 rounded-full bg-zinc-100 dark:bg-zinc-800 text-[10px]">16</span>
+        </button>
+        <button type="button" onclick="selectHomeCategory('Cybersecurity')" class="home-cat-btn px-4 py-2.5 rounded-full text-xs font-bold transition bg-white dark:bg-zinc-900 text-zinc-700 dark:text-zinc-300 border border-zinc-200 dark:border-zinc-800 hover:border-indigo-500 flex items-center gap-2" data-cat="Cybersecurity">
+          <i class="fa-solid fa-shield-halved text-rose-500"></i>
+          <span>Cybersecurity</span>
+          <span class="px-2 py-0.5 rounded-full bg-zinc-100 dark:bg-zinc-800 text-[10px]">8</span>
+        </button>
+        <button type="button" onclick="selectHomeCategory('Design')" class="home-cat-btn px-4 py-2.5 rounded-full text-xs font-bold transition bg-white dark:bg-zinc-900 text-zinc-700 dark:text-zinc-300 border border-zinc-200 dark:border-zinc-800 hover:border-indigo-500 flex items-center gap-2" data-cat="Design">
+          <i class="fa-solid fa-pen-nib text-purple-500"></i>
+          <span>UI/UX Design</span>
+          <span class="px-2 py-0.5 rounded-full bg-zinc-100 dark:bg-zinc-800 text-[10px]">12</span>
+        </button>
+        <button type="button" onclick="selectHomeCategory('Business')" class="home-cat-btn px-4 py-2.5 rounded-full text-xs font-bold transition bg-white dark:bg-zinc-900 text-zinc-700 dark:text-zinc-300 border border-zinc-200 dark:border-zinc-800 hover:border-indigo-500 flex items-center gap-2" data-cat="Business">
+          <i class="fa-solid fa-chart-line text-amber-500"></i>
+          <span>Business / PM</span>
+          <span class="px-2 py-0.5 rounded-full bg-zinc-100 dark:bg-zinc-800 text-[10px]">10</span>
+        </button>
+        <button type="button" onclick="selectHomeCategory('Marketing')" class="home-cat-btn px-4 py-2.5 rounded-full text-xs font-bold transition bg-white dark:bg-zinc-900 text-zinc-700 dark:text-zinc-300 border border-zinc-200 dark:border-zinc-800 hover:border-indigo-500 flex items-center gap-2" data-cat="Marketing">
+          <i class="fa-solid fa-bullhorn text-emerald-500"></i>
+          <span>Digital Growth</span>
+          <span class="px-2 py-0.5 rounded-full bg-zinc-100 dark:bg-zinc-800 text-[10px]">7</span>
+        </button>
+      </div>
+
+      <!-- On-Click Workplace Reveal Container -->
+      <div class="mt-8" id="home-workplace-container">
+        <!-- Rendered dynamically by JavaScript when user clicks on a category -->
+        <div id="home-workplaces-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <!-- Populated by selectHomeCategory() -->
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= HOW IT WORKS ================= -->
+  <section class="py-20 bg-white dark:bg-slate-800/60 border-t border-slate-200 dark:border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-2xl mx-auto mb-16">
+        <h2 class="text-3xl font-extrabold font-heading text-slate-900 dark:text-white">How The Portal Works</h2>
+        <p class="text-slate-600 dark:text-slate-400 text-sm mt-2">A streamlined placement pipeline designed for students and hiring managers.</p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+        <!-- For Students -->
+        <div class="p-8 rounded-3xl bg-indigo-50/60 dark:bg-indigo-950/20 border border-indigo-100 dark:border-indigo-900/50">
+          <div class="flex items-center gap-3 mb-6">
+            <div class="w-10 h-10 rounded-xl bg-indigo-600 text-white flex items-center justify-center font-bold">
+              <i class="fa-solid fa-user-graduate"></i>
+            </div>
+            <h3 class="text-xl font-bold text-slate-900 dark:text-white">For CSE Students</h3>
+          </div>
+
+          <div class="space-y-6">
+            <div class="flex items-start gap-4">
+              <div class="w-8 h-8 rounded-full bg-indigo-600 text-white flex items-center justify-center font-bold text-xs flex-shrink-0">1</div>
+              <div>
+                <h4 class="font-bold text-sm text-slate-900 dark:text-white">Create & Complete Profile</h4>
+                <p class="text-xs text-slate-600 dark:text-slate-300 mt-1">Showcase academic CGPA, GitHub repositories, programming skills, and upload your verified PDF resume.</p>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-4">
+              <div class="w-8 h-8 rounded-full bg-indigo-600 text-white flex items-center justify-center font-bold text-xs flex-shrink-0">2</div>
+              <div>
+                <h4 class="font-bold text-sm text-slate-900 dark:text-white">Find & Filter Openings</h4>
+                <p class="text-xs text-slate-600 dark:text-slate-300 mt-1">Search through 20+ active roles with work-mode, stipend, duration, and skill filters.</p>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-4">
+              <div class="w-8 h-8 rounded-full bg-indigo-600 text-white flex items-center justify-center font-bold text-xs flex-shrink-0">3</div>
+              <div>
+                <h4 class="font-bold text-sm text-slate-900 dark:text-white">1-Click Fast Apply</h4>
+                <p class="text-xs text-slate-600 dark:text-slate-300 mt-1">Attach customized cover letters and submit applications with full timeline status tracking.</p>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-4">
+              <div class="w-8 h-8 rounded-full bg-indigo-600 text-white flex items-center justify-center font-bold text-xs flex-shrink-0">4</div>
+              <div>
+                <h4 class="font-bold text-sm text-slate-900 dark:text-white">Interview & Get Hired</h4>
+                <p class="text-xs text-slate-600 dark:text-slate-300 mt-1">Join scheduled video interviews and receive official internship offer letters directly.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- For Companies -->
+        <div class="p-8 rounded-3xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
+          <div class="flex items-center gap-3 mb-6">
+            <div class="w-10 h-10 rounded-xl bg-cyan-600 text-white flex items-center justify-center font-bold">
+              <i class="fa-regular fa-building"></i>
+            </div>
+            <h3 class="text-xl font-bold text-slate-900 dark:text-white">For Hiring Companies</h3>
+          </div>
+
+          <div class="space-y-6">
+            <div class="flex items-start gap-4">
+              <div class="w-8 h-8 rounded-full bg-cyan-600 text-white flex items-center justify-center font-bold text-xs flex-shrink-0">1</div>
+              <div>
+                <h4 class="font-bold text-sm text-slate-900 dark:text-white">Create Company Profile</h4>
+                <p class="text-xs text-slate-600 dark:text-slate-300 mt-1">Highlight your company culture, technology stack, office locations, and HR contact details.</p>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-4">
+              <div class="w-8 h-8 rounded-full bg-cyan-600 text-white flex items-center justify-center font-bold text-xs flex-shrink-0">2</div>
+              <div>
+                <h4 class="font-bold text-sm text-slate-900 dark:text-white">Post Internships</h4>
+                <p class="text-xs text-slate-600 dark:text-slate-300 mt-1">Publish detailed listings with required skill tags, stipend structures, and deadlines.</p>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-4">
+              <div class="w-8 h-8 rounded-full bg-cyan-600 text-white flex items-center justify-center font-bold text-xs flex-shrink-0">3</div>
+              <div>
+                <h4 class="font-bold text-sm text-slate-900 dark:text-white">Screen & Shortlist Applicants</h4>
+                <p class="text-xs text-slate-600 dark:text-slate-300 mt-1">Filter candidates by CGPA, semester, technical skills, and review student resumes instantly.</p>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-4">
+              <div class="w-8 h-8 rounded-full bg-cyan-600 text-white flex items-center justify-center font-bold text-xs flex-shrink-0">4</div>
+              <div>
+                <h4 class="font-bold text-sm text-slate-900 dark:text-white">Schedule Interviews & Hire</h4>
+                <p class="text-xs text-slate-600 dark:text-slate-300 mt-1">Book Google Meet/Zoom slots and send instant offer acceptances to top CSE talent.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= TOP HIRING COMPANIES ================= -->
+  <section class="py-16 bg-slate-50 dark:bg-slate-900">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-2xl mx-auto mb-10">
+        <h2 class="text-2xl font-bold font-heading text-slate-900 dark:text-white">Top Hiring Partners</h2>
+        <p class="text-slate-500 text-xs mt-1">Technology leaders collaborating with our CSE department.</p>
+      </div>
+
+      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-6 items-center">
+        <div class="p-5 rounded-2xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-center font-bold text-sm text-slate-700 dark:text-slate-300 flex items-center justify-center gap-2">
+          <i class="fa-solid fa-code text-indigo-500"></i> TechNova
+        </div>
+        <div class="p-5 rounded-2xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-center font-bold text-sm text-slate-700 dark:text-slate-300 flex items-center justify-center gap-2">
+          <i class="fa-solid fa-cubes text-cyan-500"></i> ByteCraft
+        </div>
+        <div class="p-5 rounded-2xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-center font-bold text-sm text-slate-700 dark:text-slate-300 flex items-center justify-center gap-2">
+          <i class="fa-solid fa-cloud text-blue-500"></i> CloudCore
+        </div>
+        <div class="p-5 rounded-2xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-center font-bold text-sm text-slate-700 dark:text-slate-300 flex items-center justify-center gap-2">
+          <i class="fa-solid fa-brain text-purple-500"></i> AI Vision
+        </div>
+        <div class="p-5 rounded-2xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-center font-bold text-sm text-slate-700 dark:text-slate-300 flex items-center justify-center gap-2">
+          <i class="fa-solid fa-shield text-rose-500"></i> CyberShield
+        </div>
+        <div class="p-5 rounded-2xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-center font-bold text-sm text-slate-700 dark:text-slate-300 flex items-center justify-center gap-2">
+          <i class="fa-solid fa-palette text-amber-500"></i> DesignNest
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= TESTIMONIALS ================= -->
+  <section class="py-20 bg-white dark:bg-slate-800/40 border-t border-slate-200 dark:border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-2xl mx-auto mb-14">
+        <h2 class="text-3xl font-extrabold font-heading text-slate-900 dark:text-white">Student & Recruiter Success Stories</h2>
+        <p class="text-slate-600 dark:text-slate-400 text-sm mt-2">Hear how our university portal launched software engineering careers.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="p-6 rounded-3xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 flex flex-col justify-between">
+          <div class="space-y-3">
+            <div class="flex text-amber-400 text-xs gap-1">
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+            </div>
+            <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed italic">
+              "Through the portal, I applied for the React Developer role at TechNova. The transparent application timeline and Google Meet interview scheduling made the entire process stress-free!"
+            </p>
+          </div>
+          <div class="flex items-center gap-3 pt-6 mt-6 border-t border-slate-200 dark:border-slate-700">
+            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&auto=format&fit=crop&q=80" alt="Mehedi" class="w-11 h-11 rounded-full object-cover" />
+            <div>
+              <h4 class="font-bold text-xs text-slate-900 dark:text-white">Mehedi Hasan</h4>
+              <p class="text-[11px] text-slate-500">7th Sem CSE • Hired at TechNova</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="p-6 rounded-3xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 flex flex-col justify-between">
+          <div class="space-y-3">
+            <div class="flex text-amber-400 text-xs gap-1">
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+            </div>
+            <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed italic">
+              "We screened over 150 applicants from the CSE department and hired 4 incredible backend engineering interns. The CGPA and skill-filtering tools saved our recruiting team weeks."
+            </p>
+          </div>
+          <div class="flex items-center gap-3 pt-6 mt-6 border-t border-slate-200 dark:border-slate-700">
+            <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=100&auto=format&fit=crop&q=80" alt="HR" class="w-11 h-11 rounded-full object-cover" />
+            <div>
+              <h4 class="font-bold text-xs text-slate-900 dark:text-white">Farhan Ahmed</h4>
+              <p class="text-[11px] text-slate-500">Talent Acquisition Lead, TechNova</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="p-6 rounded-3xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 flex flex-col justify-between">
+          <div class="space-y-3">
+            <div class="flex text-amber-400 text-xs gap-1">
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+            </div>
+            <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed italic">
+              "I landed a UI/UX design internship at DesignNest in just 2 weeks. The resume builder and portfolio preview features gave me an edge during evaluations."
+            </p>
+          </div>
+          <div class="flex items-center gap-3 pt-6 mt-6 border-t border-slate-200 dark:border-slate-700">
+            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&auto=format&fit=crop&q=80" alt="Ayesha" class="w-11 h-11 rounded-full object-cover" />
+            <div>
+              <h4 class="font-bold text-xs text-slate-900 dark:text-white">Ayesha Siddiqua</h4>
+              <p class="text-[11px] text-slate-500">CSE Graduate • Hired at DesignNest</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= CTA BANNER ================= -->
+  <section class="py-16 bg-gradient-to-r from-indigo-600 via-indigo-700 to-cyan-700 text-white">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
+      <h2 class="text-3xl sm:text-4xl font-extrabold font-heading">Start Your Internship Journey Today</h2>
+      <p class="text-indigo-100 text-sm sm:text-base max-w-xl mx-auto leading-relaxed">
+        Join over 5,000 students and leading technology firms collaborating on our centralized placement portal.
+      </p>
+      <div class="flex flex-wrap items-center justify-center gap-4 pt-2">
+        <a href="pages/student/register.html" class="px-8 py-3.5 rounded-2xl bg-white text-indigo-700 hover:bg-indigo-50 font-bold text-sm shadow-xl transition">
+          Register as Student
+        </a>
+        <a href="pages/company/register.html" class="px-8 py-3.5 rounded-2xl bg-indigo-900/60 hover:bg-indigo-900 text-white border border-indigo-300/30 font-bold text-sm transition">
+          Register as Company
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="bg-slate-900 text-slate-300 pt-16 pb-12 border-t border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-5 gap-10 pb-12 border-b border-slate-800 text-xs">
+        
+        <!-- Col 1: Brand & Project info -->
+        <div class="md:col-span-2 space-y-4">
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-xl bg-indigo-600 text-white flex items-center justify-center font-bold text-lg">
+              <i class="fa-solid fa-graduation-cap"></i>
+            </div>
+            <span class="text-lg font-extrabold text-white font-heading tracking-tight">INTERN<span class="text-indigo-400">PORTAL</span></span>
+          </div>
+          <p class="text-slate-400 leading-relaxed max-w-sm">
+            Internship Management Portal — University Computer Science & Engineering (CSE) Capstone Project. Built with clean frontend architecture and responsive design.
+          </p>
+          <div class="flex items-center gap-3 text-slate-400 pt-2">
+            <a href="#" class="w-8 h-8 rounded-lg bg-slate-800 hover:bg-indigo-600 hover:text-white flex items-center justify-center transition"><i class="fa-brands fa-github"></i></a>
+            <a href="#" class="w-8 h-8 rounded-lg bg-slate-800 hover:bg-indigo-600 hover:text-white flex items-center justify-center transition"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="#" class="w-8 h-8 rounded-lg bg-slate-800 hover:bg-indigo-600 hover:text-white flex items-center justify-center transition"><i class="fa-brands fa-facebook-f"></i></a>
+          </div>
+        </div>
+
+        <!-- Col 2: Quick Links -->
+        <div class="space-y-3">
+          <h4 class="font-bold text-white uppercase tracking-wider text-xs">Navigation</h4>
+          <ul class="space-y-2 text-slate-400">
+            <li><a href="index.html" class="hover:text-white transition">Home</a></li>
+            <li><a href="pages/student/internships.html" class="hover:text-white transition">Explore Internships</a></li>
+            <li><a href="pages/about.html" class="hover:text-white transition">About the Portal</a></li>
+            <li><a href="pages/contact.html" class="hover:text-white transition">Contact & Support</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Student Section -->
+        <div class="space-y-3">
+          <h4 class="font-bold text-white uppercase tracking-wider text-xs">Student Portal</h4>
+          <ul class="space-y-2 text-slate-400">
+            <li><a href="pages/student/login.html" class="hover:text-white transition">Student Login</a></li>
+            <li><a href="pages/student/dashboard.html" class="hover:text-white transition">Student Dashboard</a></li>
+            <li><a href="pages/student/profile.html" class="hover:text-white transition">Student Profile</a></li>
+            <li><a href="pages/student/applications.html" class="hover:text-white transition">Track Applications</a></li>
+            <li><a href="pages/student/resume.html" class="hover:text-white transition">Resume Manager</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Company Section -->
+        <div class="space-y-3">
+          <h4 class="font-bold text-white uppercase tracking-wider text-xs">Company Portal</h4>
+          <ul class="space-y-2 text-slate-400">
+            <li><a href="pages/company/login.html" class="hover:text-white transition">Company Login</a></li>
+            <li><a href="pages/company/dashboard.html" class="hover:text-white transition">Company Dashboard</a></li>
+            <li><a href="pages/company/post-internship.html" class="hover:text-white transition">Post an Internship</a></li>
+            <li><a href="pages/company/applicants.html" class="hover:text-white transition">Candidate Screening</a></li>
+            <li><a href="pages/company/interviews.html" class="hover:text-white transition">Schedule Interviews</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-slate-500 text-xs">
+        <p>© 2026 Internship Management Portal. University CSE Department Project.</p>
+        <p>Developed with Tailwind CSS & Vanilla JavaScript.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/main.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/internships.js"></script>
+  <script src="js/applications.js"></script>
+  <script>
+    // Hero Portal Switcher
+    function switchHeroPortal(portal) {
+      const btnStudent = document.getElementById('hero-tab-student');
+      const btnCompany = document.getElementById('hero-tab-company');
+      const prevStudent = document.getElementById('hero-preview-student');
+      const prevCompany = document.getElementById('hero-preview-company');
+
+      if (!btnStudent || !btnCompany || !prevStudent || !prevCompany) return;
+
+      if (portal === 'student') {
+        btnStudent.className = "flex-1 py-2 rounded-full text-xs font-bold transition bg-white dark:bg-zinc-900 text-indigo-600 dark:text-indigo-400 shadow-sm flex items-center justify-center gap-2";
+        btnCompany.className = "flex-1 py-2 rounded-full text-xs font-bold transition text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white flex items-center justify-center gap-2";
+        prevStudent.classList.remove('hidden');
+        prevCompany.classList.add('hidden');
+      } else {
+        btnCompany.className = "flex-1 py-2 rounded-full text-xs font-bold transition bg-white dark:bg-zinc-900 text-cyan-600 dark:text-cyan-400 shadow-sm flex items-center justify-center gap-2";
+        btnStudent.className = "flex-1 py-2 rounded-full text-xs font-bold transition text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white flex items-center justify-center gap-2";
+        prevCompany.classList.remove('hidden');
+        prevStudent.classList.add('hidden');
+      }
+    }
+
+    // Interactive Category & Workplace Selector
+    function selectHomeCategory(categoryName) {
+      // Update active button state
+      const buttons = document.querySelectorAll('.home-cat-btn');
+      buttons.forEach(btn => {
+        const cat = btn.getAttribute('data-cat');
+        if (cat === categoryName) {
+          btn.className = "home-cat-btn px-4 py-2.5 rounded-full text-xs font-bold transition bg-indigo-600 text-white shadow-sm flex items-center gap-2";
+        } else {
+          btn.className = "home-cat-btn px-4 py-2.5 rounded-full text-xs font-bold transition bg-white dark:bg-zinc-900 text-zinc-700 dark:text-zinc-300 border border-zinc-200 dark:border-zinc-800 hover:border-indigo-500 flex items-center gap-2";
+        }
+      });
+
+      // Filter internships by category
+      const grid = document.getElementById('home-workplaces-grid');
+      if (!grid) return;
+
+      if (typeof DB === 'undefined') return;
+      const allInternships = DB.getInternships();
+      let matched = allInternships.filter(item => item.category === categoryName);
+
+      if (matched.length === 0) {
+        matched = allInternships.slice(0, 3);
+      }
+
+      grid.innerHTML = matched.map(item => `
+        <div class="bento-card p-6 bg-white dark:bg-zinc-900 border border-zinc-200/80 dark:border-zinc-800 flex flex-col justify-between hover-card-lift shadow-sm">
+          <div>
+            <div class="flex items-start justify-between gap-3 mb-4">
+              <div class="flex items-center gap-3">
+                <img src="${item.logo}" alt="${item.company}" class="w-12 h-12 rounded-2xl object-cover border border-zinc-200 dark:border-zinc-700" />
+                <div>
+                  <h4 class="font-bold text-sm text-zinc-900 dark:text-white">${item.company}</h4>
+                  <p class="text-[11px] text-zinc-500 flex items-center gap-1">
+                    <i class="fa-solid fa-location-dot text-[10px]"></i> ${item.location}
+                  </p>
+                </div>
+              </div>
+              <span class="px-2.5 py-1 rounded-full text-[10px] font-bold ${
+                item.workMode === 'Remote' ? 'bg-emerald-500/10 text-emerald-500 border border-emerald-500/20' :
+                item.workMode === 'Hybrid' ? 'bg-indigo-500/10 text-indigo-500 border border-indigo-500/20' :
+                'bg-zinc-500/10 text-zinc-500 border border-zinc-500/20'
+              }">${item.workMode}</span>
+            </div>
+
+            <h3 class="font-bold text-base text-zinc-900 dark:text-white mb-2">${item.title}</h3>
+            <p class="text-xs text-zinc-500 dark:text-zinc-400 line-clamp-2 mb-4 leading-relaxed">${item.description}</p>
+
+            <div class="flex flex-wrap gap-1.5 mb-5">
+              ${item.skills.slice(0, 4).map(s => `
+                <span class="px-2.5 py-0.5 rounded-full bg-zinc-100 dark:bg-zinc-800 text-[10px] font-semibold text-zinc-700 dark:text-zinc-300">${s}</span>
+              `).join('')}
+            </div>
+          </div>
+
+          <div class="pt-4 border-t border-zinc-100 dark:border-zinc-800 flex items-center justify-between gap-2">
+            <div>
+              <p class="text-[10px] text-zinc-400 uppercase font-bold">Stipend</p>
+              <p class="text-xs font-bold text-emerald-600 dark:text-emerald-400">${item.stipend}</p>
+            </div>
+            <div class="flex items-center gap-2">
+              <a href="pages/student/internship-details.html?id=${item.id}" class="px-3.5 py-1.5 rounded-full bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-bold shadow-sm transition">
+                Apply Now
+              </a>
+              <a href="pages/company/applicants.html" class="px-3 py-1.5 rounded-full border border-zinc-200 dark:border-zinc-700 text-zinc-600 dark:text-zinc-300 text-xs font-bold hover:border-cyan-500 transition" title="Company Screening View">
+                <i class="fa-solid fa-building text-cyan-500"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    // Auto-init category on page load
+    document.addEventListener('DOMContentLoaded', () => {
+      setTimeout(() => {
+        selectHomeCategory('Software & Development');
+      }, 100);
+    });
+  </script>
 </body>
 </html>

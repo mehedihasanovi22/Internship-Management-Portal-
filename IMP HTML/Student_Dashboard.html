@@ -8,263 +8,244 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="../../css/style.css">
+    <script>
+        tailwind.config = { darkMode: 'class', theme: { extend: { colors: { primary: {"50":"#eff6ff","100":"#dbeafe","200":"#bfdbfe","300":"#93c5fd","400":"#60a5fa","500":"#3b82f6","600":"#2563eb","700":"#1d4ed8","800":"#1e40af","900":"#1e3a8a","950":"#172554"} } } } }
+    </script>
 </head>
-<body class="bg-slate-50 flex min-h-screen">
+<body class="bg-slate-50 dark:bg-slate-900 dark:text-slate-100 transition-colors duration-300">
 
-    <!-- Mobile Sidebar Backdrop -->
-    <div id="sidebarBackdrop" onclick="toggleSidebar()" class="fixed inset-0 bg-slate-900/50 z-40 hidden md:hidden"></div>
-
-    <!-- Sidebar -->
-    <aside id="sidebar" class="fixed inset-y-0 left-0 w-72 bg-slate-900 text-slate-400 z-50 transition-transform -translate-x-full md:translate-x-0 md:static flex flex-col">
-        <div class="p-6 flex items-center gap-3">
-            <div class="bg-indigo-600 p-2 rounded-lg text-white">
-                <i class="fas fa-graduation-cap"></i>
-            </div>
-            <span class="text-white text-xl font-bold">InternHub</span>
-        </div>
-
-        <nav class="flex-1 px-4 space-y-2 mt-4">
-            <a href="dashboard.html" class="flex items-center gap-3 px-4 py-3 bg-indigo-600 text-white rounded-xl">
-                <i class="fas fa-home"></i> <span>Overview</span>
-            </a>
-            <a href="internships.html" class="flex items-center gap-3 px-4 py-3 hover:bg-slate-800 hover:text-white rounded-xl transition">
-                <i class="fas fa-search"></i> <span>Find Internships</span>
-            </a>
-            <a href="applications.html" class="flex items-center gap-3 px-4 py-3 hover:bg-slate-800 hover:text-white rounded-xl transition">
-                <i class="fas fa-paper-plane"></i> <span>My Applications</span>
-            </a>
-            <a href="interviews.html" class="flex items-center gap-3 px-4 py-3 hover:bg-slate-800 hover:text-white rounded-xl transition">
-                <i class="fas fa-calendar-alt"></i> <span>Interviews</span>
-            </a>
-            <a href="resume.html" class="flex items-center gap-3 px-4 py-3 hover:bg-slate-800 hover:text-white rounded-xl transition">
-                <i class="fas fa-file-alt"></i> <span>Resume / Portfolio</span>
-            </a>
-            <div class="pt-4 pb-2 text-xs font-semibold uppercase text-slate-500 px-4">Account</div>
-            <a href="profile.html" class="flex items-center gap-3 px-4 py-3 hover:bg-slate-800 hover:text-white rounded-xl transition">
-                <i class="fas fa-user"></i> <span>My Profile</span>
-            </a>
-            <a href="notifications.html" class="flex items-center gap-3 px-4 py-3 hover:bg-slate-800 hover:text-white rounded-xl transition">
-                <i class="fas fa-bell"></i> <span>Notifications</span>
-            </a>
-            <a href="settings.html" class="flex items-center gap-3 px-4 py-3 hover:bg-slate-800 hover:text-white rounded-xl transition">
-                <i class="fas fa-cog"></i> <span>Settings</span>
-            </a>
-        </nav>
-
-
-        <!-- Role Switcher -->
-        <div class="p-4 border-t border-slate-800">
-            <button onclick="AppState.switchRole('company')" class="w-full flex items-center justify-between px-4 py-3 bg-slate-800 rounded-xl hover:bg-slate-700 transition">
-                <div class="flex items-center gap-2">
-                    <i class="fas fa-exchange-alt text-indigo-400"></i>
-                    <span class="text-sm font-medium">Switch to Company</span>
-                </div>
-            </button>
-        </div>
-    </aside>
-
-    <!-- Main Content -->
-    <main class="flex-1 flex flex-col min-w-0">
-        <!-- Top Navbar -->
-        <header class="h-16 bg-white border-b border-slate-200 flex items-center justify-between px-4 md:px-8">
-            <button onclick="toggleSidebar()" class="md:hidden text-slate-500 p-2"><i class="fas fa-bars"></i></button>
-            
-            <div class="relative max-w-md w-full hidden sm:block">
-                <i class="fas fa-search absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-sm"></i>
-                <input type="text" placeholder="Search internships..." class="w-full pl-10 pr-4 py-2 bg-slate-100 border-none rounded-lg text-sm focus:ring-2 focus:ring-indigo-100 outline-none">
-            </div>
-
-            <div class="flex items-center gap-4">
-                <button class="relative p-2 text-slate-400 hover:text-indigo-600 transition">
-                    <i class="fas fa-bell"></i>
-                    <span class="absolute top-1 right-1 w-2 h-2 bg-red-500 rounded-full border-2 border-white"></span>
-                </button>
-                <div class="h-8 w-px bg-slate-200"></div>
-                <div class="flex items-center gap-3 group cursor-pointer" onclick="toggleDropdown()">
-                    <div class="text-right hidden sm:block">
-                        <div class="text-sm font-bold text-slate-800">Mehedi Hasan</div>
-                        <div class="text-xs text-slate-500">Student Account</div>
+    <div class="flex h-screen overflow-hidden">
+        <!-- Sidebar -->
+        <aside id="sidebar" class="fixed inset-y-0 left-0 z-50 w-64 bg-white dark:bg-slate-800 border-r border-slate-200 dark:border-slate-700 transform -translate-x-full lg:translate-x-0 transition-transform duration-300 ease-in-out">
+            <div class="flex flex-col h-full p-6">
+                <div class="flex items-center gap-3 mb-10">
+                    <div class="bg-primary-600 p-2 rounded-lg shadow-lg shadow-primary-500/30">
+                        <i class="fas fa-graduation-cap text-white text-lg"></i>
                     </div>
-                    <img src="https://i.pravatar.cc/150?u=mehedi" class="w-10 h-10 rounded-xl border-2 border-white shadow-sm" alt="avatar">
+                    <span class="text-xl font-bold bg-gradient-to-r from-primary-600 to-indigo-600 bg-clip-text text-transparent">InternLink</span>
+                </div>
+
+                <nav class="flex-1 space-y-2">
+                    <a href="dashboard.html" class="sidebar-link active flex items-center gap-3 px-4 py-3 rounded-xl transition">
+                        <i class="fas fa-home w-5"></i>
+                        <span class="font-medium">Dashboard</span>
+                    </a>
+                    <a href="internships.html" class="sidebar-link flex items-center gap-3 px-4 py-3 text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-700 rounded-xl transition">
+                        <i class="fas fa-briefcase w-5"></i>
+                        <span class="font-medium">Marketplace</span>
+                    </a>
+                    <a href="applications.html" class="sidebar-link flex items-center gap-3 px-4 py-3 text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-700 rounded-xl transition">
+                        <i class="fas fa-paper-plane w-5"></i>
+                        <span class="font-medium">My Applications</span>
+                    </a>
+                    <a href="saved-internships.html" class="sidebar-link flex items-center gap-3 px-4 py-3 text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-700 rounded-xl transition">
+                        <i class="fas fa-heart w-5"></i>
+                        <span class="font-medium">Saved Jobs</span>
+                    </a>
+                    <a href="interviews.html" class="sidebar-link flex items-center gap-3 px-4 py-3 text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-700 rounded-xl transition">
+                        <i class="fas fa-calendar-check w-5"></i>
+                        <span class="font-medium">Interviews</span>
+                    </a>
+                    <a href="notifications.html" class="sidebar-link flex items-center gap-3 px-4 py-3 text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-700 rounded-xl transition relative">
+                        <i class="fas fa-bell w-5"></i>
+                        <span class="font-medium">Notifications</span>
+                        <span class="absolute right-4 top-3.5 w-2 h-2 bg-red-500 rounded-full"></span>
+                    </a>
+                </nav>
+
+                <div class="mt-auto space-y-2 pt-6 border-t border-slate-100 dark:border-slate-700">
+                    <a href="profile.html" class="sidebar-link flex items-center gap-3 px-4 py-3 text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-700 rounded-xl transition">
+                        <i class="fas fa-user-circle w-5"></i>
+                        <span class="font-medium">My Profile</span>
+                    </a>
+                    <a href="settings.html" class="sidebar-link flex items-center gap-3 px-4 py-3 text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-700 rounded-xl transition">
+                        <i class="fas fa-cog w-5"></i>
+                        <span class="font-medium">Settings</span>
+                    </a>
+                    <button onclick="logout()" class="w-full flex items-center gap-3 px-4 py-3 text-red-500 hover:bg-red-50 dark:hover:bg-red-900/20 rounded-xl transition mt-2">
+                        <i class="fas fa-sign-out-alt w-5"></i>
+                        <span class="font-medium">Logout</span>
+                    </button>
                 </div>
             </div>
-        </header>
+        </aside>
 
-
-         <!-- Dashboard Content -->
-        <div class="p-4 md:p-8 space-y-8 overflow-y-auto">
-            <!-- Welcome Header -->
-            <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+        <!-- Main Content -->
+        <main class="flex-1 overflow-y-auto lg:ml-64 p-4 md:p-8">
+            <!-- Header -->
+            <header class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8">
                 <div>
-                    <h2 class="text-2xl font-bold text-slate-800">Hello, Mehedi 👋</h2>
+                    <h1 class="text-2xl font-bold dark:text-white">Welcome back, Mehedi! 👋</h1>
                     <p class="text-slate-500">Here's what's happening with your applications today.</p>
                 </div>
-                <div class="flex gap-3">
-                    <a href="internships.html" class="px-4 py-2 bg-indigo-600 text-white rounded-lg text-sm font-bold shadow-lg shadow-indigo-100">Find New Jobs</a>
-                </div>
-            </div>
-
-
-
-            <!-- Stats Grid -->
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm card-hover">
-                    <div class="flex justify-between items-start">
-                        <div class="p-3 bg-blue-50 text-blue-600 rounded-xl"><i class="fas fa-paper-plane"></i></div>
-                        <span class="text-xs font-bold text-green-500 bg-green-50 px-2 py-1 rounded">+12%</span>
-                    </div>
-                    <h3 class="text-3xl font-bold mt-4">12</h3>
-                    <p class="text-slate-500 text-sm">Applied Internships</p>
-                </div>
-                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm card-hover">
-                    <div class="flex justify-between items-start">
-                        <div class="p-3 bg-purple-50 text-purple-600 rounded-xl"><i class="fas fa-user-clock"></i></div>
-                    </div>
-                    <h3 class="text-3xl font-bold mt-4">04</h3>
-                    <p class="text-slate-500 text-sm">Pending Review</p>
-                </div>
-                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm card-hover">
-                    <div class="flex justify-between items-start">
-                        <div class="p-3 bg-orange-50 text-orange-600 rounded-xl"><i class="fas fa-calendar-check"></i></div>
-                    </div>
-                    <h3 class="text-3xl font-bold mt-4">02</h3>
-                    <p class="text-slate-500 text-sm">Interviews Scheduled</p>
-                </div>
-                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm card-hover">
-                    <div class="flex justify-between items-start">
-                        <div class="p-3 bg-green-50 text-green-600 rounded-xl"><i class="fas fa-award"></i></div>
-                    </div>
-                    <h3 class="text-3xl font-bold mt-4">01</h3>
-                    <p class="text-slate-500 text-sm">Offers Received</p>
-                </div>
-            </div>
-
-            <!-- Analytics & Charts -->
-            <div class="grid lg:grid-cols-3 gap-6">
-                <div class="lg:col-span-2 bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
-                    <h3 class="font-bold text-slate-800 mb-6">Application Activity</h3>
-                    <canvas id="activityChart" height="150"></canvas>
-                </div>
-                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
-                    <h3 class="font-bold text-slate-800 mb-6">Profile Completion</h3>
-                    <div class="flex justify-center items-center py-4">
-                        <div class="relative w-40 h-40">
-                            <svg class="w-full h-full" viewBox="0 0 36 36">
-                                <circle cx="18" cy="18" r="16" fill="none" stroke="#f1f5f9" stroke-width="3"></circle>
-                                <circle cx="18" cy="18" r="16" fill="none" stroke="#6366f1" stroke-width="3" stroke-dasharray="85, 100" stroke-linecap="round"></circle>
-                            </svg>
-                            <div class="absolute inset-0 flex flex-col items-center justify-center">
-                                <span class="text-3xl font-bold">85%</span>
-                                <span class="text-xs text-slate-400">Complete</span>
-                            </div>
+                <div class="flex items-center gap-3">
+                    <button id="theme-toggle" class="p-3 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl shadow-sm hover:bg-slate-50 transition">
+                        <i class="fas fa-moon dark:hidden"></i>
+                        <i class="fas fa-sun hidden dark:block"></i>
+                    </button>
+                    <div class="flex items-center gap-3 pl-4 border-l border-slate-200 dark:border-slate-700">
+                        <img src="https://i.pravatar.cc/100?u=mehedi" class="w-10 h-10 rounded-full ring-2 ring-primary-500/20" alt="Avatar">
+                        <div class="hidden sm:block">
+                            <p class="text-sm font-bold">Mehedi Hasan</p>
+                            <p class="text-xs text-slate-500">CSE-2022-001</p>
                         </div>
                     </div>
-                    <ul class="mt-6 space-y-3">
-                        <li class="flex items-center gap-2 text-sm text-green-600"><i class="fas fa-check-circle"></i> Basic Info</li>
-                        <li class="flex items-center gap-2 text-sm text-green-600"><i class="fas fa-check-circle"></i> Resume Uploaded</li>
-                        <li class="flex items-center gap-2 text-sm text-amber-500"><i class="fas fa-circle-notch"></i> Portfolio Link</li>
-                    </ul>
+                </div>
+            </header>
+
+            <!-- Stats Grid -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+                <div class="bg-white dark:bg-slate-800 p-6 rounded-2xl border border-slate-100 dark:border-slate-700 shadow-sm hover:shadow-md transition">
+                    <div class="flex justify-between items-start mb-4">
+                        <div class="w-12 h-12 bg-blue-100 dark:bg-blue-900/30 rounded-xl flex items-center justify-center text-blue-600">
+                            <i class="fas fa-paper-plane text-xl"></i>
+                        </div>
+                        <span class="text-xs font-bold text-green-500">+12%</span>
+                    </div>
+                    <p class="text-slate-500 text-sm font-medium">Total Applied</p>
+                    <h3 class="text-2xl font-bold mt-1">24</h3>
+                </div>
+                <div class="bg-white dark:bg-slate-800 p-6 rounded-2xl border border-slate-100 dark:border-slate-700 shadow-sm hover:shadow-md transition">
+                    <div class="flex justify-between items-start mb-4">
+                        <div class="w-12 h-12 bg-purple-100 dark:bg-purple-900/30 rounded-xl flex items-center justify-center text-purple-600">
+                            <i class="fas fa-clock text-xl"></i>
+                        </div>
+                        <span class="text-xs font-bold text-slate-400">Pending</span>
+                    </div>
+                    <p class="text-slate-500 text-sm font-medium">Under Review</p>
+                    <h3 class="text-2xl font-bold mt-1">15</h3>
+                </div>
+                <div class="bg-white dark:bg-slate-800 p-6 rounded-2xl border border-slate-100 dark:border-slate-700 shadow-sm hover:shadow-md transition">
+                    <div class="flex justify-between items-start mb-4">
+                        <div class="w-12 h-12 bg-amber-100 dark:bg-amber-900/30 rounded-xl flex items-center justify-center text-amber-600">
+                            <i class="fas fa-user-check text-xl"></i>
+                        </div>
+                        <span class="text-xs font-bold text-green-500">+2</span>
+                    </div>
+                    <p class="text-slate-500 text-sm font-medium">Shortlisted</p>
+                    <h3 class="text-2xl font-bold mt-1">05</h3>
+                </div>
+                <div class="bg-white dark:bg-slate-800 p-6 rounded-2xl border border-slate-100 dark:border-slate-700 shadow-sm hover:shadow-md transition">
+                    <div class="flex justify-between items-start mb-4">
+                        <div class="w-12 h-12 bg-green-100 dark:bg-green-900/30 rounded-xl flex items-center justify-center text-green-600">
+                            <i class="fas fa-check-circle text-xl"></i>
+                        </div>
+                        <span class="text-xs font-bold text-green-500">Win</span>
+                    </div>
+                    <p class="text-slate-500 text-sm font-medium">Interviews</p>
+                    <h3 class="text-2xl font-bold mt-1">03</h3>
                 </div>
             </div>
 
+            <!-- Charts & Activity -->
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-8">
+                <div class="lg:col-span-2 bg-white dark:bg-slate-800 p-6 rounded-2xl border border-slate-100 dark:border-slate-700 shadow-sm">
+                    <div class="flex items-center justify-between mb-6">
+                        <h3 class="font-bold text-lg">Application Analytics</h3>
+                        <select class="bg-slate-50 dark:bg-slate-900 border-none text-xs rounded-lg px-2 py-1 outline-none">
+                            <option>Last 7 Days</option>
+                            <option>Last 30 Days</option>
+                        </select>
+                    </div>
+                    <canvas id="applicationChart" height="150"></canvas>
+                </div>
+                <div class="bg-white dark:bg-slate-800 p-6 rounded-2xl border border-slate-100 dark:border-slate-700 shadow-sm">
+                    <h3 class="font-bold text-lg mb-6">Profile Completion</h3>
+                    <div class="relative flex items-center justify-center mb-6">
+                        <svg class="w-32 h-32">
+                            <circle class="text-slate-100 dark:text-slate-700" stroke-width="8" stroke="currentColor" fill="transparent" r="50" cx="64" cy="64"/>
+                            <circle class="text-primary-600" stroke-width="8" stroke-dasharray="314.159" stroke-dashoffset="78.5" stroke-linecap="round" stroke="currentColor" fill="transparent" r="50" cx="64" cy="64"/>
+                        </svg>
+                        <span class="absolute text-2xl font-bold">75%</span>
+                    </div>
+                    <ul class="space-y-4">
+                        <li class="flex items-center gap-3 text-sm text-green-500">
+                            <i class="fas fa-check-circle"></i> Personal Info
+                        </li>
+                        <li class="flex items-center gap-3 text-sm text-green-500">
+                            <i class="fas fa-check-circle"></i> Upload Resume
+                        </li>
+                        <li class="flex items-center gap-3 text-sm text-slate-400">
+                            <i class="far fa-circle"></i> Add Portfolio Link
+                        </li>
+                    </ul>
+                    <a href="profile.html" class="block w-full text-center mt-6 py-2 border-2 border-primary-600 text-primary-600 rounded-xl font-bold hover:bg-primary-600 hover:text-white transition">Complete Profile</a>
+                </div>
+            </div>
 
-
-            
             <!-- Recent Applications Table -->
-            <div class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
-                <div class="p-6 border-b border-slate-100 flex justify-between items-center">
-                    <h3 class="font-bold text-slate-800">Recent Applications</h3>
-                    <a href="applications.html" class="text-indigo-600 text-sm font-semibold hover:underline">View All</a>
+            <div class="bg-white dark:bg-slate-800 rounded-2xl border border-slate-100 dark:border-slate-700 shadow-sm overflow-hidden">
+                <div class="p-6 border-b border-slate-100 dark:border-slate-700 flex justify-between items-center">
+                    <h3 class="font-bold text-lg">Recent Applications</h3>
+                    <a href="applications.html" class="text-primary-600 text-sm font-bold hover:underline">View All</a>
                 </div>
                 <div class="overflow-x-auto">
                     <table class="w-full text-left">
-                        <thead class="bg-slate-50 text-slate-500 text-xs font-bold uppercase tracking-wider">
+                        <thead class="bg-slate-50 dark:bg-slate-900/50 text-slate-500 text-sm uppercase">
                             <tr>
-                                <th class="px-6 py-4">Company</th>
-                                <th class="px-6 py-4">Position</th>
-                                <th class="px-6 py-4">Date Applied</th>
-                                <th class="px-6 py-4">Status</th>
-                                <th class="px-6 py-4">Action</th>
+                                <th class="px-6 py-4 font-bold">Internship</th>
+                                <th class="px-6 py-4 font-bold">Company</th>
+                                <th class="px-6 py-4 font-bold">Applied Date</th>
+                                <th class="px-6 py-4 font-bold">Status</th>
+                                <th class="px-6 py-4 font-bold text-right">Action</th>
                             </tr>
                         </thead>
-                        <tbody class="divide-y divide-slate-100">
+                        <tbody class="divide-y divide-slate-100 dark:divide-slate-700">
                             <tr>
+                                <td class="px-6 py-4 font-medium">Frontend Developer</td>
+                                <td class="px-6 py-4">TechNova Solutions</td>
+                                <td class="px-6 py-4 text-slate-500">Sep 01, 2026</td>
                                 <td class="px-6 py-4">
-                                    <div class="flex items-center gap-3">
-                                        <div class="w-8 h-8 rounded-lg bg-blue-600 flex items-center justify-center text-white text-xs font-bold">TN</div>
-                                        <span class="font-medium text-slate-700">TechNova</span>
-                                    </div>
+                                    <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-600 rounded-full text-xs font-bold">Applied</span>
                                 </td>
-                                <td class="px-6 py-4 text-slate-600">Frontend Intern</td>
-                                <td class="px-6 py-4 text-slate-600 text-sm">Oct 12, 2023</td>
-                                <td class="px-6 py-4">
-                                    <span class="px-3 py-1 bg-amber-50 text-amber-600 rounded-full text-xs font-bold">Interview</span>
-                                </td>
-                                <td class="px-6 py-4">
-                                    <button class="text-indigo-600 hover:text-indigo-800 font-medium text-sm">Details</button>
+                                <td class="px-6 py-4 text-right">
+                                    <button class="text-slate-400 hover:text-primary-600"><i class="fas fa-eye"></i></button>
                                 </td>
                             </tr>
                             <tr>
+                                <td class="px-6 py-4 font-medium">UI/UX Designer</td>
+                                <td class="px-6 py-4">PixelWorks</td>
+                                <td class="px-6 py-4 text-slate-500">Aug 28, 2026</td>
                                 <td class="px-6 py-4">
-                                    <div class="flex items-center gap-3">
-                                        <div class="w-8 h-8 rounded-lg bg-indigo-600 flex items-center justify-center text-white text-xs font-bold">BC</div>
-                                        <span class="font-medium text-slate-700">ByteCraft</span>
-                                    </div>
+                                    <span class="px-3 py-1 bg-amber-100 dark:bg-amber-900/30 text-amber-600 rounded-full text-xs font-bold">Shortlisted</span>
                                 </td>
-                                <td class="px-6 py-4 text-slate-600">Fullstack Intern</td>
-                                <td class="px-6 py-4 text-slate-600 text-sm">Oct 08, 2023</td>
-                                <td class="px-6 py-4">
-                                    <span class="px-3 py-1 bg-blue-50 text-blue-600 rounded-full text-xs font-bold">Applied</span>
-                                </td>
-                                <td class="px-6 py-4">
-                                    <button class="text-indigo-600 hover:text-indigo-800 font-medium text-sm">Details</button>
+                                <td class="px-6 py-4 text-right">
+                                    <button class="text-slate-400 hover:text-primary-600"><i class="fas fa-eye"></i></button>
                                 </td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
             </div>
-        </div>
-    </main>
+        </main>
+    </div>
 
     <script src="../../js/main.js"></script>
     <script>
-        // Chart.js Configuration
-        const ctx = document.getElementById('activityChart').getContext('2d');
+        // Dashboard Charts
+        const ctx = document.getElementById('applicationChart').getContext('2d');
         new Chart(ctx, {
             type: 'line',
             data: {
-                labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+                labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
                 datasets: [{
                     label: 'Applications',
-                    data: [2, 5, 3, 8, 12, 7],
-                    borderColor: '#6366f1',
-                    borderWidth: 3,
-                    tension: 0.4,
+                    data: [2, 5, 3, 8, 4, 2, 6],
+                    borderColor: '#2563eb',
+                    backgroundColor: 'rgba(37, 99, 235, 0.1)',
                     fill: true,
-                    backgroundColor: 'rgba(99, 102, 241, 0.1)'
+                    tension: 0.4
                 }]
             },
             options: {
                 responsive: true,
                 plugins: { legend: { display: false } },
-                scales: { y: { beginAtZero: true }, x: { grid: { display: false } } }
+                scales: {
+                    y: { beginAtZero: true, grid: { display: false } },
+                    x: { grid: { display: false } }
+                }
             }
         });
     </script>
-
-
-<!-- Student_Dashboard.html-->
-<nav class="flex-1 px-4 space-y-2 mt-4">
-    <a href="Student_Dashboard.html" class="flex items-center gap-3 px-4 py-3 bg-indigo-600 text-white rounded-xl">
-        <span>Overview</span>
-    </a>
-    <a href="internships.html" class="flex items-center gap-3 px-4 py-3 hover:bg-slate-800 rounded-xl">
-        <span>Find Internships</span>
-    </a>
-    <a href="imp.html" class="flex items-center gap-3 px-4 py-3 hover:bg-slate-800 rounded-xl">
-        <span>Logout</span>
-    </a>
-</nav>
 </body>
 </html>
