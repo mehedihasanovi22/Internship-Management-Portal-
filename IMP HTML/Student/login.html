@@ -50,3 +50,63 @@
         <p class="text-xs text-slate-500 mt-1">Access your applications, resume, and scheduled interviews</p>
       </div>
 
+      <!-- Quick Demo Login Button -->
+      <div class="mb-6 p-3.5 rounded-2xl bg-indigo-50 dark:bg-indigo-950/40 border border-indigo-200 dark:border-indigo-900/50 flex items-center justify-between">
+        <div>
+          <p class="text-xs font-bold text-indigo-900 dark:text-indigo-200">Demo Student Account</p>
+          <p class="text-[11px] text-indigo-700 dark:text-indigo-400">Mehedi Hasan (mehedi.cse@university.edu.bd)</p>
+        </div>
+        <button type="button" onclick="handleDemoLogin('student')" class="px-3 py-1.5 rounded-xl bg-indigo-600 text-white text-xs font-bold hover:bg-indigo-700 shadow-sm transition">
+          Auto Fill
+        </button>
+      </div>
+
+      <form id="student-login-form" onsubmit="event.preventDefault(); window.location.href = 'dashboard.html';" class="space-y-4">
+        <div>
+          <label class="block text-xs font-bold uppercase tracking-wider text-slate-600 dark:text-slate-300 mb-1.5">Student Email or ID</label>
+          <input type="text" id="login-email" required placeholder="mehedi.cse@university.edu.bd" value="mehedi.cse@university.edu.bd" class="w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900 text-xs text-slate-800 dark:text-white focus:outline-none focus:ring-2 focus:ring-indigo-500" />
+        </div>
+
+        <div>
+          <div class="flex items-center justify-between mb-1.5">
+            <label class="block text-xs font-bold uppercase tracking-wider text-slate-600 dark:text-slate-300">Password</label>
+            <a href="#" onclick="showToast('Password reset link sent to registered university email!', 'info'); return false;" class="text-[11px] font-semibold text-indigo-600 dark:text-indigo-400 hover:underline">Forgot?</a>
+          </div>
+          <input type="password" id="login-password" required value="••••••••" placeholder="Enter your password" class="w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900 text-xs text-slate-800 dark:text-white focus:outline-none focus:ring-2 focus:ring-indigo-500" />
+        </div>
+
+        <div class="flex items-center justify-between text-xs pt-1">
+          <label class="flex items-center gap-2 cursor-pointer">
+            <input type="checkbox" checked class="rounded text-indigo-600 focus:ring-indigo-500" />
+            <span class="text-slate-600 dark:text-slate-400">Remember me</span>
+          </label>
+        </div>
+
+        <button type="submit" class="w-full py-3.5 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-xs shadow-md shadow-indigo-600/25 transition">
+          Sign In to Dashboard
+        </button>
+      </form>
+
+      <div class="mt-6 text-center text-xs text-slate-500">
+        Don't have an account yet?
+        <a href="register.html" class="font-bold text-indigo-600 dark:text-indigo-400 hover:underline">Register as Student</a>
+      </div>
+    </div>
+  </main>
+
+  <!-- Simple Footer -->
+  <footer class="py-6 text-center text-xs text-slate-400 border-t border-slate-200 dark:border-slate-800">
+    © 2026 Internship Management Portal • University CSE Project
+  </footer>
+
+  <script src="../../js/main.js"></script>
+  <script src="../../js/ui.js"></script>
+  <script>
+    function handleDemoLogin(role) {
+      document.getElementById('login-email').value = 'mehedi.cse@university.edu.bd';
+      document.getElementById('login-password').value = 'student12345';
+      showToast('Demo student credentials loaded!', 'info');
+    }
+  </script>
+</body>
+</html>
