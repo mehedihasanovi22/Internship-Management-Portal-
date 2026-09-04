@@ -166,3 +166,91 @@
                     </ul>
                 </div>
             </div>
+
+
+
+            
+            <!-- Recent Applications Table -->
+            <div class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
+                <div class="p-6 border-b border-slate-100 flex justify-between items-center">
+                    <h3 class="font-bold text-slate-800">Recent Applications</h3>
+                    <a href="applications.html" class="text-indigo-600 text-sm font-semibold hover:underline">View All</a>
+                </div>
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left">
+                        <thead class="bg-slate-50 text-slate-500 text-xs font-bold uppercase tracking-wider">
+                            <tr>
+                                <th class="px-6 py-4">Company</th>
+                                <th class="px-6 py-4">Position</th>
+                                <th class="px-6 py-4">Date Applied</th>
+                                <th class="px-6 py-4">Status</th>
+                                <th class="px-6 py-4">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-slate-100">
+                            <tr>
+                                <td class="px-6 py-4">
+                                    <div class="flex items-center gap-3">
+                                        <div class="w-8 h-8 rounded-lg bg-blue-600 flex items-center justify-center text-white text-xs font-bold">TN</div>
+                                        <span class="font-medium text-slate-700">TechNova</span>
+                                    </div>
+                                </td>
+                                <td class="px-6 py-4 text-slate-600">Frontend Intern</td>
+                                <td class="px-6 py-4 text-slate-600 text-sm">Oct 12, 2023</td>
+                                <td class="px-6 py-4">
+                                    <span class="px-3 py-1 bg-amber-50 text-amber-600 rounded-full text-xs font-bold">Interview</span>
+                                </td>
+                                <td class="px-6 py-4">
+                                    <button class="text-indigo-600 hover:text-indigo-800 font-medium text-sm">Details</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-4">
+                                    <div class="flex items-center gap-3">
+                                        <div class="w-8 h-8 rounded-lg bg-indigo-600 flex items-center justify-center text-white text-xs font-bold">BC</div>
+                                        <span class="font-medium text-slate-700">ByteCraft</span>
+                                    </div>
+                                </td>
+                                <td class="px-6 py-4 text-slate-600">Fullstack Intern</td>
+                                <td class="px-6 py-4 text-slate-600 text-sm">Oct 08, 2023</td>
+                                <td class="px-6 py-4">
+                                    <span class="px-3 py-1 bg-blue-50 text-blue-600 rounded-full text-xs font-bold">Applied</span>
+                                </td>
+                                <td class="px-6 py-4">
+                                    <button class="text-indigo-600 hover:text-indigo-800 font-medium text-sm">Details</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="../../js/main.js"></script>
+    <script>
+        // Chart.js Configuration
+        const ctx = document.getElementById('activityChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+                datasets: [{
+                    label: 'Applications',
+                    data: [2, 5, 3, 8, 12, 7],
+                    borderColor: '#6366f1',
+                    borderWidth: 3,
+                    tension: 0.4,
+                    fill: true,
+                    backgroundColor: 'rgba(99, 102, 241, 0.1)'
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: { legend: { display: false } },
+                scales: { y: { beginAtZero: true }, x: { grid: { display: false } } }
+            }
+        });
+    </script>
+</body>
+</html>
