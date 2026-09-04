@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Company Dashboard | InternHub</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body class="bg-slate-50 flex min-h-screen">
+    <!-- Navigation Sidebar -->
+    <aside class="w-72 bg-slate-900 text-slate-400 h-screen sticky top-0 hidden md:flex flex-col">
+        <div class="p-6 flex items-center gap-3">
+            <div class="bg-purple-600 p-2 rounded-lg text-white"><i class="fas fa-building"></i></div>
+            <span class="text-white text-xl font-bold">InternHub Biz</span>
+        </div>
+        <nav class="flex-1 px-4 space-y-2">
+            <a href="dashboard.html" class="flex items-center gap-3 px-4 py-3 bg-purple-600 text-white rounded-xl">
+                <i class="fas fa-chart-pie"></i> <span>Insights</span>
+            </a>
+            <a href="post-internship.html" class="flex items-center gap-3 px-4 py-3 hover:bg-slate-800 rounded-xl transition">
+                <i class="fas fa-plus-circle"></i> <span>Post Internship</span>
+            </a>
+            <a href="my-internships.html" class="flex items-center gap-3 px-4 py-3 hover:bg-slate-800 rounded-xl transition">
+                <i class="fas fa-list-ul"></i> <span>My Job Posts</span>
+            </a>
+            <a href="applicants.html" class="flex items-center gap-3 px-4 py-3 hover:bg-slate-800 rounded-xl transition">
+                <i class="fas fa-users"></i> <span>Applicants</span>
+            </a>
+            <a href="interviews.html" class="flex items-center gap-3 px-4 py-3 hover:bg-slate-800 rounded-xl transition">
+                <i class="fas fa-video"></i> <span>Interviews</span>
+            </a>
+        </nav>
+
+        <div class="p-4 border-t border-slate-800">
+            <button onclick="AppState.switchRole('student')" class="w-full flex items-center justify-between px-4 py-3 bg-slate-800 rounded-xl hover:bg-slate-700 transition">
+                <div class="flex items-center gap-2">
+                    <i class="fas fa-exchange-alt text-purple-400"></i>
+                    <span class="text-sm font-medium">Switch to Student</span>
+                </div>
+            </button>
+        </div>
+    </aside>
+
+    <main class="flex-1">
+        <header class="h-16 bg-white border-b flex items-center justify-between px-8">
+            <h1 class="text-lg font-bold text-slate-700">TechNova Solutions Portal</h1>
+            <div class="flex items-center gap-4">
+                <img src="https://logo.clearbit.com/technova.com" class="w-8 h-8 rounded border" alt="logo">
+                <span class="font-bold text-sm">HR Manager</span>
+            </div>
+        </header>
+
+        <div class="p-8 space-y-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="bg-white p-8 rounded-3xl shadow-sm border flex items-center gap-6">
+                    <div class="w-14 h-14 bg-purple-100 text-purple-600 rounded-2xl flex items-center justify-center text-2xl">
+                        <i class="fas fa-briefcase"></i>
+                    </div>
+                    <div>
+                        <p class="text-slate-500 text-sm">Active Posts</p>
+                        <h4 class="text-3xl font-bold">08</h4>
+                    </div>
+                </div>
+                <div class="bg-white p-8 rounded-3xl shadow-sm border flex items-center gap-6">
+                    <div class="w-14 h-14 bg-blue-100 text-blue-600 rounded-2xl flex items-center justify-center text-2xl">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div>
+                        <p class="text-slate-500 text-sm">Total Applicants</p>
+                        <h4 class="text-3xl font-bold">142</h4>
+                    </div>
+                </div>
+                <div class="bg-white p-8 rounded-3xl shadow-sm border flex items-center gap-6">
+                    <div class="w-14 h-14 bg-green-100 text-green-600 rounded-2xl flex items-center justify-center text-2xl">
+                        <i class="fas fa-user-check"></i>
+                    </div>
+                    <div>
+                        <p class="text-slate-500 text-sm">Hired Students</p>
+                        <h4 class="text-3xl font-bold">12</h4>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid lg:grid-cols-2 gap-8">
+                <div class="bg-white p-6 rounded-3xl border shadow-sm">
+                    <h3 class="font-bold text-slate-800 mb-6">Applicant Source Distribution</h3>
+                    <canvas id="sourceChart" height="200"></canvas>
+                </div>
+                <div class="bg-white p-6 rounded-3xl border shadow-sm">
+                    <h3 class="font-bold text-slate-800 mb-6">Recent Applicant Activity</h3>
+                    <div class="space-y-6">
+                        <div class="flex items-center gap-4">
+                            <img src="https://i.pravatar.cc/150?u=12" class="w-12 h-12 rounded-full" alt="">
+                            <div class="flex-1">
+                                <h4 class="font-bold text-sm">Amina Begum</h4>
+                                <p class="text-xs text-slate-500">Applied for UI/UX Design Intern</p>
+                            </div>
+                            <span class="text-xs text-slate-400">2h ago</span>
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <img src="https://i.pravatar.cc/150?u=15" class="w-12 h-12 rounded-full" alt="">
+                            <div class="flex-1">
+                                <h4 class="font-bold text-sm">Rahul Sen</h4>
+                                <p class="text-xs text-slate-500">Applied for Backend Dev (Node.js)</p>
+                            </div>
+                            <span class="text-xs text-slate-400">5h ago</span>
+                        </div>
+                    </div>
+                    <button class="w-full mt-8 py-3 text-purple-600 font-bold border-2 border-purple-50 rounded-xl hover:bg-purple-50 transition">View All Applicants</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="../../js/main.js"></script>
+    <script>
+        const ctxSource = document.getElementById('sourceChart').getContext('2d');
+        new Chart(ctxSource, {
+            type: 'doughnut',
+            data: {
+                labels: ['Direct App', 'Referral', 'University Partner'],
+                datasets: [{
+                    data: [65, 15, 20],
+                    backgroundColor: ['#9333ea', '#3b82f6', '#10b981'],
+                    borderWidth: 0
+                }]
+            },
+            options: { cutout: '70%', plugins: { legend: { position: 'bottom' } } }
+        });
+    </script>
+</body>
+</html>
