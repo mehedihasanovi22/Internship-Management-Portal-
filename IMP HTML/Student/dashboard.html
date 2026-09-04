@@ -97,3 +97,48 @@
           <span class="text-[10px] text-zinc-400 dark:text-zinc-500 font-bold uppercase tracking-wider mt-1 block">Screened pass</span>
         </div>
 
+        <!-- Interviews -->
+        <div class="bento-card p-5 bg-white dark:bg-zinc-900/90 border-zinc-200 dark:border-zinc-800/90 hover-card-lift">
+          <div class="flex items-center justify-between mb-3">
+            <span class="bento-label">Interviews</span>
+            <div class="w-8 h-8 rounded-full bg-purple-50 dark:bg-purple-950/60 text-purple-600 dark:text-purple-400 flex items-center justify-center text-xs">
+              <i class="fa-solid fa-video"></i>
+            </div>
+          </div>
+          <p id="stat-interviews" class="text-3xl font-black font-mono text-purple-600 dark:text-purple-400">0</p>
+          <span class="text-[10px] text-zinc-400 dark:text-zinc-500 font-bold uppercase tracking-wider mt-1 block">Scheduled calls</span>
+        </div>
+
+        <!-- Selected -->
+        <div class="col-span-2 sm:col-span-1 bento-card p-5 bg-white dark:bg-zinc-900/90 border-zinc-200 dark:border-zinc-800/90 hover-card-lift">
+          <div class="flex items-center justify-between mb-3">
+            <span class="bento-label">Offers</span>
+            <div class="w-8 h-8 rounded-full bg-emerald-50 dark:bg-emerald-950/60 text-emerald-600 dark:text-emerald-400 flex items-center justify-center text-xs">
+              <i class="fa-solid fa-trophy"></i>
+            </div>
+          </div>
+          <p id="stat-selected" class="text-3xl font-black font-mono text-emerald-600 dark:text-emerald-400">0</p>
+          <span class="text-[10px] text-zinc-400 dark:text-zinc-500 font-bold uppercase tracking-wider mt-1 block">Official selections</span>
+        </div>
+      </div>
+
+      <!-- Main Bento Grid Layout -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+        
+        <!-- Left Column: Chart & Recent Applications -->
+        <div class="lg:col-span-8 space-y-6">
+          <!-- Application Status Chart -->
+          <div class="bento-card p-6 bg-white dark:bg-zinc-900/90 border-zinc-200 dark:border-zinc-800">
+            <div class="flex items-center justify-between mb-4">
+              <div>
+                <p class="bento-label mb-1">Analytics</p>
+                <h3 class="font-bold text-base text-zinc-900 dark:text-white">Application Pipeline Breakdown</h3>
+              </div>
+              <a href="applications.html" class="text-xs font-bold text-indigo-600 dark:text-indigo-400 hover:underline">View Pipeline &rarr;</a>
+            </div>
+            <div class="h-60 relative">
+              <canvas id="applicationStatusChart"></canvas>
+            </div>
+          </div>
+
+
