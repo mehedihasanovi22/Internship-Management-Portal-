@@ -76,3 +76,104 @@
             </p>
           </div>
 
+
+          <!-- Academic Summary -->
+          <div class="p-6 rounded-3xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shadow-sm space-y-3">
+            <h3 class="font-bold text-sm uppercase tracking-wider text-slate-500 dark:text-slate-400">Academic Overview</h3>
+            <div class="space-y-2.5 text-xs">
+              <div class="flex justify-between py-1.5 border-b border-slate-100 dark:border-slate-700">
+                <span class="text-slate-500">Current Semester</span>
+                <span id="profile-semester" class="font-bold text-slate-900 dark:text-white">7th Semester</span>
+              </div>
+              <div class="flex justify-between py-1.5 border-b border-slate-100 dark:border-slate-700">
+                <span class="text-slate-500">Cumulative CGPA</span>
+                <span id="profile-cgpa" class="font-bold text-emerald-600 dark:text-emerald-400">3.85 / 4.00</span>
+              </div>
+              <div class="flex justify-between py-1.5">
+                <span class="text-slate-500">Expected Graduation</span>
+                <span id="profile-grad-year" class="font-bold text-slate-900 dark:text-white">December 2026</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Technical Skills -->
+          <div class="p-6 rounded-3xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shadow-sm space-y-3">
+            <h3 class="font-bold text-sm uppercase tracking-wider text-slate-500 dark:text-slate-400">Technical Skills</h3>
+            <div id="profile-skills-container" class="flex flex-wrap gap-2">
+              <!-- Dynamically populated -->
+            </div>
+          </div>
+
+          <!-- Languages -->
+          <div class="p-6 rounded-3xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shadow-sm space-y-3">
+            <h3 class="font-bold text-sm uppercase tracking-wider text-slate-500 dark:text-slate-400">Languages</h3>
+            <div id="profile-languages-container" class="flex flex-wrap gap-2">
+              <!-- Dynamically populated -->
+            </div>
+          </div>
+
+          <!-- Social Links -->
+          <div class="p-6 rounded-3xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shadow-sm space-y-3">
+            <h3 class="font-bold text-sm uppercase tracking-wider text-slate-500 dark:text-slate-400">Online Profiles</h3>
+            <div class="space-y-2 text-xs">
+              <a id="profile-github" href="#" target="_blank" class="flex items-center gap-2.5 text-slate-700 dark:text-slate-300 hover:text-indigo-600 transition">
+                <i class="fa-brands fa-github text-base w-5"></i> GitHub Repository
+              </a>
+              <a id="profile-linkedin" href="#" target="_blank" class="flex items-center gap-2.5 text-slate-700 dark:text-slate-300 hover:text-indigo-600 transition">
+                <i class="fa-brands fa-linkedin text-base w-5 text-blue-600"></i> LinkedIn Network
+              </a>
+              <a id="profile-portfolio" href="#" target="_blank" class="flex items-center gap-2.5 text-slate-700 dark:text-slate-300 hover:text-indigo-600 transition">
+                <i class="fa-solid fa-globe text-base w-5 text-indigo-500"></i> Personal Portfolio
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Column: Education Timeline, Projects, Certifications -->
+        <div class="lg:col-span-8 space-y-6">
+          
+          <!-- Education Timeline -->
+          <div class="p-6 rounded-3xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shadow-sm space-y-4">
+            <div class="flex items-center justify-between">
+              <h3 class="font-bold text-base text-slate-900 dark:text-white">Education History</h3>
+              <i class="fa-solid fa-graduation-cap text-indigo-500"></i>
+            </div>
+            <div id="profile-education-container" class="pt-2">
+              <!-- Dynamically populated -->
+            </div>
+          </div>
+
+          <!-- Featured Projects -->
+          <div class="p-6 rounded-3xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shadow-sm space-y-4">
+            <div class="flex items-center justify-between">
+              <h3 class="font-bold text-base text-slate-900 dark:text-white">Featured Projects</h3>
+              <i class="fa-solid fa-code text-cyan-500"></i>
+            </div>
+            <div id="profile-projects-container" class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <!-- Dynamically populated -->
+            </div>
+          </div>
+
+          <!-- Certifications -->
+          <div class="p-6 rounded-3xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shadow-sm space-y-4">
+            <div class="flex items-center justify-between">
+              <h3 class="font-bold text-base text-slate-900 dark:text-white">Certifications & Honors</h3>
+              <i class="fa-solid fa-award text-amber-500"></i>
+            </div>
+            <div id="profile-certs-container" class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <!-- Dynamically populated -->
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </main>
+  </div>
+
+  <script src="../../js/main.js"></script>
+  <script src="../../js/ui.js"></script>
+  <script src="../../js/student.js"></script>
+</body>
+</html>
