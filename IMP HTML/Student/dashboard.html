@@ -59,4 +59,41 @@
         </div>
       </div>
 
-  
+      <!-- Bento 5-Stat Row -->
+      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
+        <!-- Total Applications -->
+        <div class="bento-card p-5 bg-white dark:bg-zinc-900/90 border-zinc-200 dark:border-zinc-800/90 hover-card-lift">
+          <div class="flex items-center justify-between mb-3">
+            <span class="bento-label">Total Applied</span>
+            <div class="w-8 h-8 rounded-full bg-indigo-50 dark:bg-indigo-950/60 text-indigo-600 dark:text-indigo-400 flex items-center justify-center text-xs">
+              <i class="fa-solid fa-paper-plane"></i>
+            </div>
+          </div>
+          <p id="stat-total-apps" class="text-3xl font-black font-mono text-zinc-900 dark:text-white">0</p>
+          <span class="text-[10px] text-zinc-400 dark:text-zinc-500 font-bold uppercase tracking-wider mt-1 block">Active submissions</span>
+        </div>
+
+        <!-- Pending / Reviewed -->
+        <div class="bento-card p-5 bg-white dark:bg-zinc-900/90 border-zinc-200 dark:border-zinc-800/90 hover-card-lift">
+          <div class="flex items-center justify-between mb-3">
+            <span class="bento-label">In Review</span>
+            <div class="w-8 h-8 rounded-full bg-blue-50 dark:bg-blue-950/60 text-blue-600 dark:text-blue-400 flex items-center justify-center text-xs">
+              <i class="fa-solid fa-spinner"></i>
+            </div>
+          </div>
+          <p id="stat-pending-apps" class="text-3xl font-black font-mono text-blue-600 dark:text-blue-400">0</p>
+          <span class="text-[10px] text-zinc-400 dark:text-zinc-500 font-bold uppercase tracking-wider mt-1 block">HR screening</span>
+        </div>
+
+        <!-- Shortlisted -->
+        <div class="bento-card p-5 bg-white dark:bg-zinc-900/90 border-zinc-200 dark:border-zinc-800/90 hover-card-lift">
+          <div class="flex items-center justify-between mb-3">
+            <span class="bento-label">Shortlisted</span>
+            <div class="w-8 h-8 rounded-full bg-amber-50 dark:bg-amber-950/60 text-amber-600 dark:text-amber-400 flex items-center justify-center text-xs">
+              <i class="fa-solid fa-star"></i>
+            </div>
+          </div>
+          <p id="stat-shortlisted-apps" class="text-3xl font-black font-mono text-amber-600 dark:text-amber-400">0</p>
+          <span class="text-[10px] text-zinc-400 dark:text-zinc-500 font-bold uppercase tracking-wider mt-1 block">Screened pass</span>
+        </div>
+
