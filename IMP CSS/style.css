@@ -272,3 +272,17 @@ body {
 .timeline-item:last-child::before {
   display: none;
 }
+
+/* Print Styles for Resume */
+@media print {
+  body {
+    background: white !important;
+    color: black !important;
+  }
+  .no-print {
+    display: none !important;
+  }
+  .print-only {
+    display: block !important;
+  }
+}
